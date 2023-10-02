@@ -34,6 +34,8 @@ public class TipoDeHabitacion {
     public TipoDeHabitacion() {
     }
 
+    
+    
     private void cambiarPrecio() {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
     }
