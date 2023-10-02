@@ -4,6 +4,9 @@
  */
 package g50.proyectofinal.AccesoADatos;
 
+import g50.proyectofinal.Entidades.ABMHuesped;
+import g50.proyectofinal.Entidades.TipoDeHabitacion;
+
 /**
  *
  * @author whatu
@@ -19,7 +22,10 @@ public class ABMReserva {
 //
 //    
 //    
-    
+    private ABMHuesped huesped;
+    private TipoDeHabitacion tipohabitacion;
+    private int cantidadpersonas;
+    private 
     
     
     
