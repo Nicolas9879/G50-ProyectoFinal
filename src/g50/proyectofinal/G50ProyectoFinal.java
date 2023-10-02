@@ -15,6 +15,8 @@ public class G50ProyectoFinal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
     }
     
 }
