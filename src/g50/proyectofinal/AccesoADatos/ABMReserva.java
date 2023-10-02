@@ -7,6 +7,7 @@ package g50.proyectofinal.AccesoADatos;
 import g50.proyectofinal.Entidades.ABMHuesped;
 import g50.proyectofinal.Entidades.TipoDeHabitacion;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -23,6 +24,17 @@ public class ABMReserva {
 //
 //    
 //    
+//Calcular monto estadía:  en la reserva, se calcula como precio por noche (de Tipo Habitación) por cantidad de días de estadía ingresado. Devuelve el monto*.
+//Se construye la reserva con fechaCheckin, fechaCheckout, Huesped, Habitacion, monto*, estado=1.
+//La Habitación se marca Ocupada(1), en la fecha de salida vuelve a su estado Libre.
+//
+//Método “finReserva” recibe un Hueped, permite buscar una reserva se marca, de Activa(1) a Inactiva(0). Se busca la habitación y se marca Libre(0). 
+//
+//Búsqueda de Reservas por Huésped o fechas: devuelve una Reserva.
+//
+//    
+    
+    
     private ABMHuesped huesped;
     private TipoDeHabitacion tipohabitacion;
     private int cantidadpersonas;
@@ -41,15 +53,19 @@ public class ABMReserva {
         this.fechasalida = fechasalida;
         this.importetotal = importetotal;
     }
+
+    private List<TipoDeHabitacion> CrearReserva() {
+        
+    }
+
+    private int calcularEstadia(){
+        
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    private void finReserva(){
+        
+    }
+    private ABMReserva(ABMHuesped huesped){
+        
+    }
 }
