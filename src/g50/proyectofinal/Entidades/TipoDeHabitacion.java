@@ -9,5 +9,16 @@ package g50.proyectofinal.Entidades;
  * @author whatu
  */
 public class TipoDeHabitacion {
+
+////    Crear la Clase Tipo de Habitación tendrá sus propias características, las relevantes para nuestro sistema de
+//    gestión de reservas son: código, cantidad de personas (maxima), cantidad de camas, tipo de camas (Simples, Queen, King Size), 
+//            precio por noche, que por simplicidad se supondrá único (sin promociones o tarifas distintas para temporada alta o baja). 
+////Un método cambiarPrecio, busca un Tipo de Habitación y actualiza su precio.
+    
+    private int codigo;
+    private int cantidadpersonasmaxima;
+    private int cantidadcamas;
+    private String tipocama;
+    
     
 }
