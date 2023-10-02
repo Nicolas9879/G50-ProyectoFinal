@@ -19,6 +19,27 @@ public class TipoDeHabitacion {
     private int cantidadpersonasmaxima;
     private int cantidadcamas;
     private String tipocama;
+    private int precionoche;
+
+    public TipoDeHabitacion(int codigo, int cantidadpersonasmaxima, int cantidadcamas, String tipocama, int precionoche) {
+        this.codigo = codigo;
+        this.cantidadpersonasmaxima = cantidadpersonasmaxima;
+        this.cantidadcamas = cantidadcamas;
+        this.tipocama = tipocama;
+        this.precionoche = precionoche;
+    }
+
+    public TipoDeHabitacion() {
+    }
+    
+    
+    private void cambiarPrecio(){
+        // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU 
+    }
+    
+    
+    
+   
     
     
 }
