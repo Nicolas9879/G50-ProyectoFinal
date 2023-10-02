@@ -18,6 +18,17 @@ public class ABMHuesped {
     private String domicilio;
     private String correo;
     private int celular;
+
+    public ABMHuesped() {
+    }
+
+    public ABMHuesped(String nombre, String dni, String domicilio, String correo, int celular) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.correo = correo;
+        this.celular = celular;
+    }
     
     
     

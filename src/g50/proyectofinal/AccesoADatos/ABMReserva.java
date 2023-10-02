@@ -5,7 +5,6 @@
 package g50.proyectofinal.AccesoADatos;
 
 import g50.proyectofinal.Entidades.ABMHuesped;
-import g50.proyectofinal.Entidades.TipoDeHabitacion;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -31,8 +30,9 @@ public class ABMReserva {
 //Método “finReserva” recibe un Hueped, permite buscar una reserva se marca, de Activa(1) a Inactiva(0). Se busca la habitación y se marca Libre(0). 
 //
 //Búsqueda de Reservas por Huésped o fechas: devuelve una Reserva.
+//Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
+//Un informe de Huespedes por dni como campo de búsqueda.
 //
-//    
     
     
     private ABMHuesped huesped;
