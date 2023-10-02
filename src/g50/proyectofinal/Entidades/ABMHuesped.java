@@ -10,4 +10,13 @@ package g50.proyectofinal.Entidades;
  */
 public class ABMHuesped {
     
+    
+    // s (nombre, DNI, Domicilio, correo, celular). 
+    
+    private String nombre;
+    private String dni;
+    private String domicilio;
+    private String correo;
+    private int celular;
+    
 }
