@@ -14,7 +14,7 @@ public class ABMHuesped {
     // s (nombre, DNI, Domicilio, correo, celular). 
     
     private String nombre;
-    private String dni;
+    private int  dni;
     private String domicilio;
     private String correo;
     private int celular;
@@ -22,7 +22,7 @@ public class ABMHuesped {
     public ABMHuesped() {
     }
 
-    public ABMHuesped(String nombre, String dni, String domicilio, String correo, int celular) {
+    public ABMHuesped(String nombre, int dni, String domicilio, String correo, int celular) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;

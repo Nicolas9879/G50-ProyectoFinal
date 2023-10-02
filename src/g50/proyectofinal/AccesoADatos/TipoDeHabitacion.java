@@ -14,32 +14,28 @@ public class TipoDeHabitacion {
 //    gestión de reservas son: código, cantidad de personas (maxima), cantidad de camas, tipo de camas (Simples, Queen, King Size), 
 //            precio por noche, que por simplicidad se supondrá único (sin promociones o tarifas distintas para temporada alta o baja). 
 ////Un método cambiarPrecio, busca un Tipo de Habitación y actualiza su precio.
-    
     private int codigo;
-    private int cantidadpersonasmaxima;
-    private int cantidadcamas;
+    private int personasmaximas;
+    private int camas;
     private String tipocama;
-    private int precionoche;
+    private int precioxnoche;
+    private boolean estado; // esto deberia existir?
 
-    public TipoDeHabitacion(int codigo, int cantidadpersonasmaxima, int cantidadcamas, String tipocama, int precionoche) {
+    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado) {
         this.codigo = codigo;
-        this.cantidadpersonasmaxima = cantidadpersonasmaxima;
-        this.cantidadcamas = cantidadcamas;
+        this.personasmaximas = personasmaximas;
+        this.camas = camas;
         this.tipocama = tipocama;
-        this.precionoche = precionoche;
+        this.precioxnoche = precioxnoche;
+        this.estado = estado;
     }
 
+  
     public TipoDeHabitacion() {
     }
-    
-    
-    private void cambiarPrecio(){
+
+    private void cambiarPrecio() {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
     }
-    
-    
-    
-   
-    
-    
+
 }

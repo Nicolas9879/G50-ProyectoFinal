@@ -13,7 +13,8 @@ import java.util.List;
  * @author whatu
  */
 public class ABMReserva {
-//    ABM Reserva. En cada Reserva se toma nota de: datos del Huesped, Tipo de Habitación, cantidad de personas, fechas de entrada y salida, importe total de estadía. Metodos Buscar una Reserva por Huesped, Cancelar reserva
+////    ABM Reserva. En cada Reserva se toma nota de: datos del Huesped, Tipo de Habitación, cantidad de personas, fechas de entrada y 
+//    salida, importe total de estadía. Metodos Buscar una Reserva por Huesped, Cancelar reserva
 //
 //
 //El proceso de hacer una Reserva se organizará. El método Crear Reserva:
