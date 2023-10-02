@@ -19,4 +19,7 @@ public class ABMHuesped {
     private String correo;
     private int celular;
     
+    
+    
+    
 }

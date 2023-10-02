@@ -6,6 +6,7 @@ package g50.proyectofinal.AccesoADatos;
 
 import g50.proyectofinal.Entidades.ABMHuesped;
 import g50.proyectofinal.Entidades.TipoDeHabitacion;
+import java.time.LocalDate;
 
 /**
  *
@@ -25,7 +26,28 @@ public class ABMReserva {
     private ABMHuesped huesped;
     private TipoDeHabitacion tipohabitacion;
     private int cantidadpersonas;
-    private 
+    private LocalDate fechaentrada;
+    private LocalDate fechasalida;
+    private int importetotal;
+
+    public ABMReserva() {
+    }
+
+    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal) {
+        this.huesped = huesped;
+        this.tipohabitacion = tipohabitacion;
+        this.cantidadpersonas = cantidadpersonas;
+        this.fechaentrada = fechaentrada;
+        this.fechasalida = fechasalida;
+        this.importetotal = importetotal;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     
