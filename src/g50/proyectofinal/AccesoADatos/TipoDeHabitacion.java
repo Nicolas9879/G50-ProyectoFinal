@@ -35,6 +35,54 @@ public class TipoDeHabitacion {
     public TipoDeHabitacion() {
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getPersonasmaximas() {
+        return personasmaximas;
+    }
+
+    public void setPersonasmaximas(int personasmaximas) {
+        this.personasmaximas = personasmaximas;
+    }
+
+    public int getCamas() {
+        return camas;
+    }
+
+    public void setCamas(int camas) {
+        this.camas = camas;
+    }
+
+    public String getTipocama() {
+        return tipocama;
+    }
+
+    public void setTipocama(String tipocama) {
+        this.tipocama = tipocama;
+    }
+
+    public int getPrecioxnoche() {
+        return precioxnoche;
+    }
+
+    public void setPrecioxnoche(int precioxnoche) {
+        this.precioxnoche = precioxnoche;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     
     
     private void cambiarPrecio() {
