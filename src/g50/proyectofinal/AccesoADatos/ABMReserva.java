@@ -55,6 +55,54 @@ public class ABMReserva {
         this.importetotal = importetotal;
     }
 
+    public ABMHuesped getHuesped() {
+        return huesped;
+    }
+
+    public void setHuesped(ABMHuesped huesped) {
+        this.huesped = huesped;
+    }
+
+    public TipoDeHabitacion getTipohabitacion() {
+        return tipohabitacion;
+    }
+
+    public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
+        this.tipohabitacion = tipohabitacion;
+    }
+
+    public int getCantidadpersonas() {
+        return cantidadpersonas;
+    }
+
+    public void setCantidadpersonas(int cantidadpersonas) {
+        this.cantidadpersonas = cantidadpersonas;
+    }
+
+    public LocalDate getFechaentrada() {
+        return fechaentrada;
+    }
+
+    public void setFechaentrada(LocalDate fechaentrada) {
+        this.fechaentrada = fechaentrada;
+    }
+
+    public LocalDate getFechasalida() {
+        return fechasalida;
+    }
+
+    public void setFechasalida(LocalDate fechasalida) {
+        this.fechasalida = fechasalida;
+    }
+
+    public int getImportetotal() {
+        return importetotal;
+    }
+
+    public void setImportetotal(int importetotal) {
+        this.importetotal = importetotal;
+    }
+
     
     
     
