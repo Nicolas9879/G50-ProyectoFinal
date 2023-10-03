@@ -20,17 +20,18 @@ public class TipoDeHabitacion {
     private String tipocama;
     private int precioxnoche;
     private boolean estado; // esto deberia existir?
+    private String tipohabitacion; //
 
-    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado) {
+    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado, String tipohabitacion) {
         this.codigo = codigo;
         this.personasmaximas = personasmaximas;
         this.camas = camas;
         this.tipocama = tipocama;
         this.precioxnoche = precioxnoche;
         this.estado = estado;
+        this.tipohabitacion = tipohabitacion;
     }
 
-   
     public TipoDeHabitacion() {
     }
 
@@ -82,14 +83,17 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    
-    
-    
-    
-    
-    
-    private void cambiarPrecio() {
+    public String getTipohabitacion() {
+        return tipohabitacion;
+    }
+
+    public void setTipohabitacion(String tipohabitacion) {
+        this.tipohabitacion = tipohabitacion;
+    }
+
+    private void cambiarPrecio(int codigo) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
+
     }
 
 }
