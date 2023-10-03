@@ -109,8 +109,11 @@ public class TipoDeHabitacion {
             ps.setDouble(1, precio);
             ps.setString(2, tipohabitacion);
             
-            ResultSet rs=ps.executeQuery();
+            int rowsaffected=ps.executeUpdate();
             
+            if(rowsaffected>0){
+                JOptionPane.showMessageDialog(null, "Precio actualizado con exito");
+            }
             
             
             
