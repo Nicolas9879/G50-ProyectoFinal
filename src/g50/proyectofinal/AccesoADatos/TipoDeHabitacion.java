@@ -25,12 +25,12 @@ public class TipoDeHabitacion {
     private int personasmaximas;
     private int camas;
     private String tipocama;
-    private int precioxnoche;
+    private double precioxnoche;
     private boolean estado; // esto deberia existir?
     private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
     private Connection con = null;
 
-    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado, String tipohabitacion) {
+    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, double precioxnoche, boolean estado, String tipohabitacion) {
         this.codigo = codigo;
         this.personasmaximas = personasmaximas;
         this.camas = camas;
@@ -76,11 +76,11 @@ public class TipoDeHabitacion {
         this.tipocama = tipocama;
     }
 
-    public int getPrecioxnoche() {
+    public double getPrecioxnoche() {
         return precioxnoche;
     }
 
-    public void setPrecioxnoche(int precioxnoche) {
+    public void setPrecioxnoche(double precioxnoche) {
         this.precioxnoche = precioxnoche;
     }
 
@@ -100,13 +100,17 @@ public class TipoDeHabitacion {
         this.tipohabitacion = tipohabitacion;
     }
 
-    private void cambiarPrecio(String tipohabitacion) {
+    private void cambiarPrecio(String tipohabitacion, double precio) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
-        String sql = "SELECT * FROM tipohabitacion WHERE tipohabitacion=?";
+        String sql = "UPDATE  tipohabitacion  SET precioxnoche=? WHERE tipohabitacion=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, tipohabitacion);
+            ps.setDouble(1, precio);
+            ps.setString(2, tipohabitacion);
+            
+            ResultSet rs=ps.executeQuery();
+            
             
             
             
