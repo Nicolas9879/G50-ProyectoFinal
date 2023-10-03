@@ -20,7 +20,7 @@ public class TipoDeHabitacion {
     private String tipocama;
     private int precioxnoche;
     private boolean estado; // esto deberia existir?
-    private String tipohabitacion; //
+    private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
 
     public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado, String tipohabitacion) {
         this.codigo = codigo;
@@ -91,9 +91,9 @@ public class TipoDeHabitacion {
         this.tipohabitacion = tipohabitacion;
     }
 
-    private void cambiarPrecio(int codigo) {
+    private void cambiarPrecio(String tipohabitacion) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
-
+        String sql= "SELECT * FROM"
     }
 
 }
