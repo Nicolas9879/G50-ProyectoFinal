@@ -10,9 +10,8 @@ package g50.proyectofinal;
  */
 public class G50ProyectoFinal {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+
     public static void main(String[] args) {
         // TODO code application logic here
         
