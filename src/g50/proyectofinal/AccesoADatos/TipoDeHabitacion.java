@@ -30,8 +30,7 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    
-  
+   
     public TipoDeHabitacion() {
     }
 
