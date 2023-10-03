@@ -4,6 +4,10 @@
  */
 package g50.proyectofinal.AccesoADatos;
 
+import java.sql.PreparedStatement;
+
+import java.sql.*;
+
 /**
  *
  * @author whatu
@@ -21,6 +25,7 @@ public class TipoDeHabitacion {
     private int precioxnoche;
     private boolean estado; // esto deberia existir?
     private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
+    private Connection con = null;
 
     public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, int precioxnoche, boolean estado, String tipohabitacion) {
         this.codigo = codigo;
@@ -33,6 +38,7 @@ public class TipoDeHabitacion {
     }
 
     public TipoDeHabitacion() {
+        con = Conexion.getConexion();//necesario
     }
 
     public int getCodigo() {
@@ -93,7 +99,10 @@ public class TipoDeHabitacion {
 
     private void cambiarPrecio(String tipohabitacion) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
-        String sql= "SELECT * FROM"
+        String sql = "SELECT * FROM tipohabitacion WHERE tipohabitacion=?";
+
+        PreparedStatement ps = con.                       
+                
     }
 
 }
