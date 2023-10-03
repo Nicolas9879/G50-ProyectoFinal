@@ -7,6 +7,9 @@ package g50.proyectofinal.AccesoADatos;
 import java.sql.PreparedStatement;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -101,8 +104,16 @@ public class TipoDeHabitacion {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
         String sql = "SELECT * FROM tipohabitacion WHERE tipohabitacion=?";
 
-        PreparedStatement ps = con.                       
-                
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, tipohabitacion);
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al cambiar precio");
+        }
+
     }
 
 }
