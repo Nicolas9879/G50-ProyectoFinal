@@ -19,6 +19,9 @@ public class ABMHabitaciones {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
+        String sql="INSERT INTO "
+        
+        
     }
 
 }
