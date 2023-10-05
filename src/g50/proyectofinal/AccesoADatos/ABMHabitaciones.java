@@ -38,6 +38,7 @@ public class ABMHabitaciones {
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
+            
             JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");

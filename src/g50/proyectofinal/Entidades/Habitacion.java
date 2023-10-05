@@ -58,4 +58,9 @@ public class Habitacion {
         this.tipohabitacion = tipohabitacion;
     }
 
+    @Override
+    public String toString() {
+        return "Habitacion{" + "codigo=" + codigo + ", numero=" + numero + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
+    }
+
 }
