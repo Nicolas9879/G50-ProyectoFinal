@@ -30,8 +30,8 @@ public class TipoDeHabitacion {
     private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
     private Connection con = null;
 
-    public TipoDeHabitacion(int codigo, int personasmaximas, int camas, String tipocama, double precioxnoche, boolean estado, String tipohabitacion) {
-        this.codigo = codigo;
+    public TipoDeHabitacion(int personasmaximas, int camas, String tipocama, double precioxnoche, boolean estado, String tipohabitacion) {
+
         this.personasmaximas = personasmaximas;
         this.camas = camas;
         this.tipocama = tipocama;
@@ -108,15 +108,13 @@ public class TipoDeHabitacion {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, precio);
             ps.setString(2, tipohabitacion);
-            
-            int rowsaffected=ps.executeUpdate();
-            
-            if(rowsaffected>0){
+
+            int rowsaffected = ps.executeUpdate();
+
+            if (rowsaffected > 0) {
                 JOptionPane.showMessageDialog(null, "Precio actualizado con exito");
             }
-            
-            
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al cambiar precio");
         }
