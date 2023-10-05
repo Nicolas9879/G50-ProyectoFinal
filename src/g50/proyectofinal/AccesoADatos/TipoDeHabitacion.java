@@ -83,8 +83,6 @@ public class TipoDeHabitacion {
         this.precioxnoche = precioxnoche;
     }
 
-
-
     public String getTipohabitacion() {
         return tipohabitacion;
     }
@@ -93,7 +91,7 @@ public class TipoDeHabitacion {
         this.tipohabitacion = tipohabitacion;
     }
 
-    private void cambiarPrecio(String tipohabitacion, double precio) {
+    public void cambiarPrecio(String tipohabitacion, double precio) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
         String sql = "UPDATE  tipohabitacion  SET precioxnoche=? WHERE tipohabitacion=?";
 
@@ -114,12 +112,27 @@ public class TipoDeHabitacion {
 
     }
 
-    @Override
-    public String toString() {
-        return "TipoDeHabitacion{" + "codigo=" + codigo + ", personasmaximas=" + personasmaximas + ", camas=" + camas + ", tipocama=" + tipocama + ", precioxnoche=" + precioxnoche  + ", tipohabitacion=" + tipohabitacion + '}';
+    public void nuevoTipo(TipoDeHabitacion tip) {
+        String sql = "INSERT INTO tipohabitacion (precioxnoche,camas,personasmaximas,tipocama) VALUES(?,?,?,?,?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+      ps.setDouble(1, tip.getPrecioxnoche());
+        ps.setInt(2, tip.getCamas());
+        ps.setInt(3, tip.getPersonasmaximas());
+        ps.setString(4, tip.getTipocama());  
+// Ejecutar la consulta para agregar el nuevo tipo de habitación
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
+        }
+
     }
 
-    
-    
-    
+    @Override
+    public String toString() {
+        return "TipoDeHabitacion{" + "codigo=" + codigo + ", personasmaximas=" + personasmaximas + ", camas=" + camas + ", tipocama=" + tipocama + ", precioxnoche=" + precioxnoche + ", tipohabitacion=" + tipohabitacion + '}';
+    }
+
 }

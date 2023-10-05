@@ -4,6 +4,8 @@
  */
 package g50.proyectofinal.Entidades;
 
+import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
+
 /**
  *
  * @author whatu
@@ -13,14 +15,9 @@ public class Habitacion {
     private int codigo;
     private int numero;
     private boolean estado;
-    private String tipohabitacion;
+    private TipoDeHabitacion tipohabitacion;
 
-    public Habitacion(int numero, boolean estado, String tipohabitacion) {
-        this.estado = estado;
-        this.tipohabitacion = tipohabitacion;
-        this.numero=numero;
-    }
-
+ 
     public Habitacion() {
     }
 
@@ -50,14 +47,7 @@ public class Habitacion {
         this.estado = estado;
     }
 
-    public String getTipohabitacion() {
-        return tipohabitacion;
-    }
-
-    public void setTipohabitacion(String tipohabitacion) {
-        this.tipohabitacion = tipohabitacion;
-    }
-
+ 
     @Override
     public String toString() {
         return "Habitacion{" + "codigo=" + codigo + ", numero=" + numero + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
