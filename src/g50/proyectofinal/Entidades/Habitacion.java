@@ -15,10 +15,10 @@ public class Habitacion {
     private boolean estado;
     private String tipohabitacion;
 
-    public Habitacion(int codigo, boolean estado, String tipohabitacion) {
+    public Habitacion(int numero, boolean estado, String tipohabitacion) {
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
-        this.codigo=codigo;
+        this.numero=numero;
     }
 
     public Habitacion() {

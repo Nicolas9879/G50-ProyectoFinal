@@ -13,7 +13,7 @@ public class G50ProyectoFinal {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        Habitacion tp = new Habitacion(true, "Suite"); // ENUM
+        Habitacion tp = new Habitacion(5,true, "Suite"); // ENUM
         ABMHabitaciones ab = new ABMHabitaciones();
         ab.altaHabitacion(tp);
         System.out.println(tp);
