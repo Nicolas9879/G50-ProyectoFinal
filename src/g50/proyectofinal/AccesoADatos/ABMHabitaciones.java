@@ -16,7 +16,12 @@ public class ABMHabitaciones {
     //-- Comentarios-- >> Seria un CRUD? un metodo para el Create (alta), otro para el Read, otro para el delete y uno al final para el update.
     // Deberia  de crearse en la base de datos.
     
+    // añadir habitaciones
     
+    public void altaHabitacion(){
+         TipoDeHabitacion hab1=new TipoDeHabitacion();
+         
+    }
     
     
     
