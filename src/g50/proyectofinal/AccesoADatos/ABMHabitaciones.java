@@ -4,6 +4,7 @@
  */
 package g50.proyectofinal.AccesoADatos;
 
+import g50.proyectofinal.Entidades.Habitacion;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -24,11 +25,11 @@ public class ABMHabitaciones {
         con = Conexion.getConexion();//necesario
     }
 
-    public void altaHabitacion(TipoDeHabitacion habit) {
+    public void altaHabitacion(Habitacion habit) {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
-        String sql = "INSERT INTO tipohabitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
+        String sql = "INSERT INTO tipohabitacion,habitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación

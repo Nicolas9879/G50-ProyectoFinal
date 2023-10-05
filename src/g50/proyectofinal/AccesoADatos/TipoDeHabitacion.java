@@ -26,17 +26,16 @@ public class TipoDeHabitacion {
     private int camas;
     private String tipocama;
     private double precioxnoche;
-    private boolean estado; // esto deberia existir?
+
     private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
     private Connection con = null;
 
-    public TipoDeHabitacion(int personasmaximas, int camas, String tipocama, double precioxnoche, boolean estado, String tipohabitacion) {
+    public TipoDeHabitacion(int personasmaximas, int camas, String tipocama, double precioxnoche, String tipohabitacion) {
 
         this.personasmaximas = personasmaximas;
         this.camas = camas;
         this.tipocama = tipocama;
         this.precioxnoche = precioxnoche;
-        this.estado = estado;
         this.tipohabitacion = tipohabitacion;
     }
 
@@ -84,13 +83,7 @@ public class TipoDeHabitacion {
         this.precioxnoche = precioxnoche;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 
     public String getTipohabitacion() {
         return tipohabitacion;
@@ -123,7 +116,7 @@ public class TipoDeHabitacion {
 
     @Override
     public String toString() {
-        return "TipoDeHabitacion{" + "codigo=" + codigo + ", personasmaximas=" + personasmaximas + ", camas=" + camas + ", tipocama=" + tipocama + ", precioxnoche=" + precioxnoche + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
+        return "TipoDeHabitacion{" + "codigo=" + codigo + ", personasmaximas=" + personasmaximas + ", camas=" + camas + ", tipocama=" + tipocama + ", precioxnoche=" + precioxnoche  + ", tipohabitacion=" + tipohabitacion + '}';
     }
 
     

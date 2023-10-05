@@ -18,6 +18,8 @@ public class G50ProyectoFinal {
         ABMHabitaciones ab=new ABMHabitaciones();
         ab.altaHabitacion(tp);
         System.out.println(tp);
+        
+        
     }
     
 }
