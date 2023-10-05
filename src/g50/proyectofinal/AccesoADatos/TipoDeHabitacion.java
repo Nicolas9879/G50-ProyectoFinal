@@ -121,4 +121,12 @@ public class TipoDeHabitacion {
 
     }
 
+    @Override
+    public String toString() {
+        return "TipoDeHabitacion{" + "codigo=" + codigo + ", personasmaximas=" + personasmaximas + ", camas=" + camas + ", tipocama=" + tipocama + ", precioxnoche=" + precioxnoche + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
+    }
+
+    
+    
+    
 }
