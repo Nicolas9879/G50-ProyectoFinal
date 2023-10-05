@@ -18,9 +18,7 @@ public class ABMHabitaciones {
     public void altaHabitacion(TipoDeHabitacion habit) {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
-        
-         
-         
+
     }
-    
+
 }
