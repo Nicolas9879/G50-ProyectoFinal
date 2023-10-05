@@ -28,7 +28,7 @@ public class ABMHabitaciones {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
-        String sql = "INSERT INTO tipohabitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
+        String sql = "INSERT INTO tipohabitacion AND habitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
@@ -43,36 +43,13 @@ public class ABMHabitaciones {
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-            ResultSet cod= ps.getGeneratedKeys();
-            while(cod.next()){
-           
-            }
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
         }
     }
-    
-    String sql2 = "INSERT INTO Rooms (numero_habitacion, estado, room_type_id) VALUES (?, ?, ?)";
 
-// Preparar la consulta y establecer los valores para la nueva habitación
-    PreparedStatement pstmtRoom = connection.prepareStatement(sqlInsertRoom);
-
-    pstmtRoom.setInt (
-            
-
-    1, 206);  // Número de habitación
-    pstmtRoom.setInt (
-            
-
-    2, 0);    // Estado (Libre)
-    pstmtRoom.setInt (
-            
-
-    3, roomTypeId);  // ID del tipo de habitación que creaste anteriormente
-
-// Ejecutar la consulta para agregar la nueva habitación
-    pstmtRoom.executeUpdate ();
 
 }
 
-}
+
