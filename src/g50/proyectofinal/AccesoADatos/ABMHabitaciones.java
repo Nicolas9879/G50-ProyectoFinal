@@ -34,11 +34,11 @@ public class ABMHabitaciones {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, habit.getNumero());
             ps.setBoolean(2, habit.isEstado());
-            ps.setString(3, habit.getTipohabitacion());
+            ps.setString(3, habit.getTipohabitacion().getTipohabitacion());
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
@@ -46,10 +46,4 @@ public class ABMHabitaciones {
 
     }
 
-    
-    
-    
-    
-    
-    
 }

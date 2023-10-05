@@ -17,11 +17,23 @@ public class Habitacion {
     private boolean estado;
     private TipoDeHabitacion tipohabitacion;
 
- 
-    public Habitacion() {
+    public Habitacion(int codigo, boolean estado, TipoDeHabitacion tipohabitacion) {
+        this.codigo = codigo;
+
+        this.estado = estado;
+        this.tipohabitacion = tipohabitacion;
     }
 
-    
+    public TipoDeHabitacion getTipohabitacion() {
+        return tipohabitacion;
+    }
+
+    public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
+        this.tipohabitacion = tipohabitacion;
+    }
+
+    public Habitacion() {
+    }
 
     public int getCodigo() {
         return codigo;
@@ -47,7 +59,6 @@ public class Habitacion {
         this.estado = estado;
     }
 
- 
     @Override
     public String toString() {
         return "Habitacion{" + "codigo=" + codigo + ", numero=" + numero + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
