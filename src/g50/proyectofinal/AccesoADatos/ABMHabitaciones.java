@@ -4,6 +4,9 @@
  */
 package g50.proyectofinal.AccesoADatos;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author whatu
@@ -15,13 +18,61 @@ public class ABMHabitaciones {
     //-- Comentarios-- >> Seria un CRUD? un metodo para el Create (alta), otro para el Read, otro para el delete y uno al final para el update.
     // Deberia  de crearse en la base de datos.
     // añadir habitaciones
+    private Connection con = null;
+
+    public ABMHabitaciones() {
+        con = Conexion.getConexion();//necesario
+    }
+
     public void altaHabitacion(TipoDeHabitacion habit) {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
-        String sql="INSERT INTO "
-        
-        
+        String sql = "INSERT INTO tipohabitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
+
+// Preparar la consulta y establecer los valores para el nuevo tipo de habitación
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, habit.getTipohabitacion());
+            ps.setBoolean(2, habit.isEstado());  // Cantidad máxima de personas
+            ps.setDouble(3, habit.getPrecioxnoche());  // Cantidad de camas
+            ps.setInt(4, habit.getCamas());  // Tipo de camas
+            ps.setInt(5, habit.getPersonasmaximas());  // Precio por noche
+            ps.setString(6, habit.getTipocama());  // Precio por noche
+
+// Ejecutar la consulta para agregar el nuevo tipo de habitación
+            ps.executeUpdate();
+            ResultSet cod= ps.getGeneratedKeys();
+            while(cod.next()){
+           
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
+        }
     }
+    
+    String sql2 = "INSERT INTO Rooms (numero_habitacion, estado, room_type_id) VALUES (?, ?, ?)";
+
+// Preparar la consulta y establecer los valores para la nueva habitación
+    PreparedStatement pstmtRoom = connection.prepareStatement(sqlInsertRoom);
+
+    pstmtRoom.setInt (
+            
+
+    1, 206);  // Número de habitación
+    pstmtRoom.setInt (
+            
+
+    2, 0);    // Estado (Libre)
+    pstmtRoom.setInt (
+            
+
+    3, roomTypeId);  // ID del tipo de habitación que creaste anteriormente
+
+// Ejecutar la consulta para agregar la nueva habitación
+    pstmtRoom.executeUpdate ();
+
+}
 
 }
