@@ -4,10 +4,6 @@
  */
 package g50.proyectofinal;
 
-/**
- *
- * @author whatu
- */
 public class G50ProyectoFinal {
 
     
