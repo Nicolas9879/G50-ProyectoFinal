@@ -26,32 +26,26 @@ public class ABMHabitaciones {
     }
 
     public void altaHabitacion(Habitacion habit) {
-        TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
-                habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
-        String sql = "INSERT INTO tipohabitacion,habitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO habitacion ( estado, tipohabitacion) VALUES (?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, habit.getTipohabitacion());
-            ps.setBoolean(2, habit.isEstado());  // Cantidad máxima de personas
-            ps.setDouble(3, habit.getPrecioxnoche());  // Cantidad de camas
-            ps.setInt(4, habit.getCamas());  // Tipo de camas
-            ps.setInt(5, habit.getPersonasmaximas());  // Precio por noche
-            ps.setString(6, habit.getTipocama());  // Precio por noche
-
+            ps.setBoolean(1, habit.isEstado()); 
+            ps.setString(2, habit.getTipohabitacion()); 
+            
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-
+            ResultSet rs=ps.getGeneratedKeys();
+            while(rs.next()){
+                habit.setCodigo(rs.getInt(1));
+                   habit.setNumero(rs.getInt(2));
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
         }
-        
-        
-        
-        
+
     }
 
 }

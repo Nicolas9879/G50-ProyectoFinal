@@ -9,10 +9,22 @@ package g50.proyectofinal.Entidades;
  * @author whatu
  */
 public class Habitacion {
+
     private int codigo;
     private int numero;
     private boolean estado;
-private String tipohabitacion;
+    private String tipohabitacion;
+
+    public Habitacion(int codigo, boolean estado, String tipohabitacion) {
+        this.estado = estado;
+        this.tipohabitacion = tipohabitacion;
+        this.codigo=codigo;
+    }
+
+    public Habitacion() {
+    }
+
+    
 
     public int getCodigo() {
         return codigo;
@@ -45,6 +57,5 @@ private String tipohabitacion;
     public void setTipohabitacion(String tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
     }
-    
-    
+
 }
