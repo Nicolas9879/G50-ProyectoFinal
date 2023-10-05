@@ -17,8 +17,8 @@ public class Habitacion {
     private boolean estado;
     private TipoDeHabitacion tipohabitacion;
 
-    public Habitacion(int codigo, boolean estado, TipoDeHabitacion tipohabitacion) {
-        this.codigo = codigo;
+    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion) {
+        this.numero = numero;
 
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;

@@ -12,13 +12,13 @@ public class G50ProyectoFinal {
 
     public static void main(String[] args) {
         // TODO code application logic here
-
+        ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////
         TipoDeHabitacion prueba= new TipoDeHabitacion(20, 20, "King Size", 70500, "Suite");
-        Habitacion tp = new Habitacion(12, true, prueba); // ENUM
+        Habitacion tp = new Habitacion(13, true, prueba); // ENUM
         ABMHabitaciones ab = new ABMHabitaciones();
         ab.altaHabitacion(tp);
         System.out.println(tp);
-
+        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////
     }
 
 }

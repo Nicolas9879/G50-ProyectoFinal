@@ -27,14 +27,14 @@ public class ABMHabitaciones {
 
     public void altaHabitacion(Habitacion habit) {
 
-        String sql = "INSERT INTO habitacion (numero, estado, tipohabitacion) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado) VALUES (?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, habit.getNumero());
-            ps.setBoolean(2, habit.isEstado());
-            ps.setString(3, habit.getTipohabitacion().getTipohabitacion());
+            ps.setString(1, habit.getTipohabitacion().getTipohabitacion());
+            ps.setInt(2, habit.getNumero());
+            ps.setBoolean(3, habit.isEstado());
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
