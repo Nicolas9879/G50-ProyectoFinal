@@ -28,7 +28,7 @@ public class ABMHabitaciones {
         TipoDeHabitacion hab1 = new TipoDeHabitacion(habit.getPersonasmaximas(), habit.getCamas(),
                 habit.getTipocama(), habit.getPrecioxnoche(), habit.isEstado(), habit.getTipohabitacion());
 
-        String sql = "INSERT INTO tipohabitacion AND habitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
+        String sql = "INSERT INTO tipohabitacion (tipo_habitacion, estado, precioxnoche, camas, personasmaximas, tipocama) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación

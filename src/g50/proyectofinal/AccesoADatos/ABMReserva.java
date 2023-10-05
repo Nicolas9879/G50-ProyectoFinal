@@ -106,21 +106,21 @@ public class ABMReserva {
     
     
     
-    
-    private List<TipoDeHabitacion> CrearReserva() {
-        //
-    }
-
-    private int calcularEstadia(){
-        //
-    }
-    
-    private void finReserva(){
-        //
-    }
-    private ABMReserva(ABMHuesped huesped){
-        //
-    }
+//    
+//    private List<TipoDeHabitacion> CrearReserva() {
+//        //
+//    }
+//
+//    private int calcularEstadia(){
+//        //
+//    }
+//    
+//    private void finReserva(){
+//        //
+//    }
+//    private ABMReserva(ABMHuesped huesped){
+//        //
+//    }
     
     
     
