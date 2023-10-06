@@ -46,7 +46,7 @@ public class ABMHabitaciones {
 
     }
 
-    public void nuevoTipo(TipoDeHabitacion tip) {
+ /*   public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -64,6 +64,6 @@ public class ABMHabitaciones {
             JOptionPane.showMessageDialog(null, "Error al añadir nuevo tipo de habitacion");
             String errorMessage = ex.getMessage();
             JOptionPane.showMessageDialog(null, "Error: " + errorMessage);
-        }
+        }*/
 
     }
