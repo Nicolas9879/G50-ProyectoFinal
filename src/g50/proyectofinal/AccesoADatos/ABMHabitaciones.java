@@ -20,13 +20,13 @@ public class ABMHabitaciones {
     // Deberia  de crearse en la base de datos.
     // añadir habitaciones
     private Connection con = null;
-    
+
     public ABMHabitaciones() {
         con = Conexion.getConexion();//necesario
     }
-    
+
     public void altaHabitacion(Habitacion habit) {
-        
+
         String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado) VALUES (?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
@@ -38,13 +38,48 @@ public class ABMHabitaciones {
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
         }
-        
+
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* METODO anulado.. Solo servia para cargar tipos de habitaciones -------------------------------------------------
     
     public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
@@ -66,6 +101,5 @@ public class ABMHabitaciones {
             JOptionPane.showMessageDialog(null, "Error: " + errorMessage);
         }
         
-    }
-    
+    } ------------- METODO anulado.. Solo servia para cargar tipos de habitaciones.------------*/
 }
