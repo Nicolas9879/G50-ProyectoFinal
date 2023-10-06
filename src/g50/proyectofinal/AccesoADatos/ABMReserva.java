@@ -138,10 +138,12 @@ public class ABMReserva {
         }
         return habarray;
     }
-    
-    public int calcularEstadia() {
 
+    public double calcularEstadia(TipoDeHabitacion tip, int dias) {
+        double a = tip.getPrecioxnoche();
+        return a * dias;
     }
+    
 //    
 //    private void finReserva(){
 //        //
