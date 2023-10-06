@@ -112,7 +112,6 @@ public class ABMReserva {
 
     public ArrayList<Habitacion> CrearReserva(LocalDate entrada, LocalDate salida, int personas) {
         int cod = 0;
-
         ArrayList<Habitacion> habarray = new ArrayList();
         String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
         try {
@@ -135,11 +134,11 @@ public class ABMReserva {
                 habarray.add(hab);
 
             }
-            return 
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
         }
-
+        return habarray;
     }
 //
 //    private int calcularEstadia(){
