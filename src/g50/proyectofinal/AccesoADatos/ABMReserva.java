@@ -156,13 +156,36 @@ public class ABMReserva {
     }
 
     public ABMReserva buscaReserva(ABMHuesped huesped) {
+        ABMReserva reserva = new ABMReserva();
+
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
-            PreparedStatement ps = con.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, huesped.getDni());
-           ResultSet rs= ps.executeQuery();
-            while(rs.next()){
-                
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                reserva.setCantidadpersonas(rs.getInt("personas"));
+                reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
+                reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
+                reserva.setHuesped(huesped);
+                reserva.setImportetotal(rs.getInt("importe_total"));
+                reserva.setTipohabitacion();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
+        }
+    }
+
+    public TipoDeHabitacion codigoHabitacion(int cod) {
+       TipoDeHabitacion tp=new TipoDeHabitacion();
+        String sql = "SELECT * FROM tipohabitaciones WHERE codigo=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, cod);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+              
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
