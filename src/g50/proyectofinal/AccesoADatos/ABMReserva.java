@@ -158,10 +158,12 @@ public class ABMReserva {
     public ABMReserva buscaReserva(ABMHuesped huesped) {
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, huesped.getDni());
-           
-            
+           ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
