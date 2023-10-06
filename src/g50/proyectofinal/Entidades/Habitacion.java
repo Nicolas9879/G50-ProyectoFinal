@@ -12,35 +12,14 @@ import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
  */
 public class Habitacion {
 
-    private int codigo;
     private int numero;
     private boolean estado;
     private TipoDeHabitacion tipohabitacion;
 
     public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion) {
         this.numero = numero;
-
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
-    }
-
-    public TipoDeHabitacion getTipohabitacion() {
-        return tipohabitacion;
-    }
-
-    public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
-        this.tipohabitacion = tipohabitacion;
-    }
-
-    public Habitacion() {
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public int getNumero() {
@@ -59,9 +38,17 @@ public class Habitacion {
         this.estado = estado;
     }
 
+    public TipoDeHabitacion getTipohabitacion() {
+        return tipohabitacion;
+    }
+
+    public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
+        this.tipohabitacion = tipohabitacion;
+    }
+
     @Override
     public String toString() {
-        return "Habitacion{" + "codigo=" + codigo + ", numero=" + numero + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
+        return "Habitacion{" + "numero=" + numero + ", estado=" + estado + ", tipohabitacion=" + tipohabitacion + '}';
     }
 
 }

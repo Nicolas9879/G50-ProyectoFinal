@@ -11,14 +11,25 @@ import g50.proyectofinal.Entidades.Habitacion;
 public class G50ProyectoFinal {
 
     public static void main(String[] args) {
+        
+        TipoDeHabitacion tp=new TipoDeHabitacion(10, 10, "King Size", 150210  , "Suite Lujo");
+        ABMHabitaciones ab=new ABMHabitaciones();
+        
+        ab.nuevoTipo(tp);
+        
+        
         // TODO code application logic here
-        ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////
-        TipoDeHabitacion prueba= new TipoDeHabitacion(20, 20, "King Size", 70500, "Suite");
-        Habitacion tp = new Habitacion(13, true, prueba); // ENUM
-        ABMHabitaciones ab = new ABMHabitaciones();
-        ab.altaHabitacion(tp);
-        System.out.println(tp);
-        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////
+//        ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////     ///////---TEST 1-------------////
+//        TipoDeHabitacion prueba= new TipoDeHabitacion(20, 20, "King Size", 70500, "Suite");
+//        Habitacion tp = new Habitacion(13, true, prueba); // ENUM
+//        ABMHabitaciones ab = new ABMHabitaciones();
+//        ab.altaHabitacion(tp);
+//        System.out.println(tp);
+//        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////        ///////---TEST 1-------------////
+//    
+    
+    
+    
     }
 
 }

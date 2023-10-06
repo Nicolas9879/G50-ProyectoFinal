@@ -46,4 +46,25 @@ public class ABMHabitaciones {
 
     }
 
+    public void nuevoTipo(TipoDeHabitacion tip) {
+        String sql = "INSERT INTO tipohabitacion (precioxnoche,camas,personasmaximas,tipocama) VALUES(?,?,?,?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1, tip.getPrecioxnoche());
+            ps.setInt(2, tip.getCamas());
+            ps.setInt(3, tip.getPersonasmaximas());
+            ps.setString(4, tip.getTipocama());
+// Ejecutar la consulta para agregar el nuevo tipo de habitación
+            int a = ps.executeUpdate();
+
+            System.out.println(a);
+            JOptionPane.showMessageDialog(null, "Nuevo Tipo De Habitacion añadido");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al añadir nuevo tipo de habitacion");
+            String errorMessage = ex.getMessage();
+            JOptionPane.showMessageDialog(null, "Error: " + errorMessage);
+        }
+
+    }
+
 }

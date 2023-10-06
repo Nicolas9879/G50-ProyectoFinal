@@ -28,7 +28,7 @@ public class TipoDeHabitacion {
     private double precioxnoche;
 
     private String tipohabitacion; //Estándar simple, doble, Triple, o Suite Lujo
-    private Connection con = null;
+    private Connection con;
 
     public TipoDeHabitacion(int personasmaximas, int camas, String tipocama, double precioxnoche, String tipohabitacion) {
 
@@ -40,7 +40,7 @@ public class TipoDeHabitacion {
     }
 
     public TipoDeHabitacion() {
-        con = Conexion.getConexion();//necesario
+        con = Conexion.getConexion() ;//necesario
     }
 
     public int getCodigo() {
@@ -112,23 +112,7 @@ public class TipoDeHabitacion {
 
     }
 
-    public void nuevoTipo(TipoDeHabitacion tip) {
-        String sql = "INSERT INTO tipohabitacion (precioxnoche,camas,personasmaximas,tipocama) VALUES(?,?,?,?,?)";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-      ps.setDouble(1, tip.getPrecioxnoche());
-        ps.setInt(2, tip.getCamas());
-        ps.setInt(3, tip.getPersonasmaximas());
-        ps.setString(4, tip.getTipocama());  
-// Ejecutar la consulta para agregar el nuevo tipo de habitación
-            ps.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
-        }
-
-    }
+   
 
     @Override
     public String toString() {
