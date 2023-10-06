@@ -143,15 +143,16 @@ public class ABMReserva {
         double a = tip.getPrecioxnoche();
         return a * dias;
     }
-    
-public void finReserva(ABMHuesped huesped){
-    String sql= "DELETE FROM reserva WHERE id_huesped=?";
+
+    public void finReserva(ABMHuesped huesped) {
+        String sql = "DELETE FROM reserva WHERE dni=?";
         try {
-            PreparedStatement ps=con.prepareStatement(sql);
-              
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, huesped.getDni());
+            ps.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
         }
-            
-}
+
+    }
 }
