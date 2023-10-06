@@ -160,9 +160,10 @@ public class ABMReserva {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, huesped.getDni());
-            ps.executeUpdate();
+           
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
     }
 
