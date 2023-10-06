@@ -48,11 +48,11 @@ public class ABMReserva {
     private LocalDate fechasalida;
     private int importetotal;
     private Connection con = null;
-    
+
     public ABMReserva() {
         con = Conexion.getConexion();
     }
-    
+
     public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
@@ -61,59 +61,60 @@ public class ABMReserva {
         this.fechasalida = fechasalida;
         this.importetotal = importetotal;
     }
-    
+
     public ABMHuesped getHuesped() {
         return huesped;
     }
-    
+
     public void setHuesped(ABMHuesped huesped) {
         this.huesped = huesped;
     }
-    
+
     public TipoDeHabitacion getTipohabitacion() {
         return tipohabitacion;
     }
-    
+
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
     }
-    
+
     public int getCantidadpersonas() {
         return cantidadpersonas;
     }
-    
+
     public void setCantidadpersonas(int cantidadpersonas) {
         this.cantidadpersonas = cantidadpersonas;
     }
-    
+
     public LocalDate getFechaentrada() {
         return fechaentrada;
     }
-    
+
     public void setFechaentrada(LocalDate fechaentrada) {
         this.fechaentrada = fechaentrada;
     }
-    
+
     public LocalDate getFechasalida() {
         return fechasalida;
     }
-    
+
     public void setFechasalida(LocalDate fechasalida) {
         this.fechasalida = fechasalida;
     }
-    
+
     public int getImportetotal() {
         return importetotal;
     }
-    
+
     public void setImportetotal(int importetotal) {
         this.importetotal = importetotal;
     }
-    
+
     public ArrayList<Habitacion> CrearReserva(LocalDate entrada, LocalDate salida, int personas) {
         int cod = 0;
+
+        ArrayList<Habitacion> habarray = new ArrayList();
         String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
-        
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, personas);
@@ -122,23 +123,23 @@ public class ABMReserva {
                 cod = rs.getInt("codigo");
             }
             Habitacion hab = new Habitacion();
-            ArrayList<Habitacion> habarray = new ArrayList();
+
             String sql2 = "SELECT numero, estado FROM habitaciones WHERE codigo=?";
             PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cod);
             ResultSet rs2 = ps2.executeQuery();
             while (rs.next()) {
-               
+
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 habarray.add(hab);
-                
+
             }
-            
+            return 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
         }
-        
+
     }
 //
 //    private int calcularEstadia(){
