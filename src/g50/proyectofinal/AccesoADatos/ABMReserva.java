@@ -177,7 +177,7 @@ public class ABMReserva {
     }
 
     public TipoDeHabitacion codigoHabitacion(int cod) {
-       TipoDeHabitacion tp=new TipoDeHabitacion();
+        TipoDeHabitacion tp = new TipoDeHabitacion();
         String sql = "SELECT * FROM tipohabitaciones WHERE codigo=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -185,7 +185,7 @@ public class ABMReserva {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-              
+
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
