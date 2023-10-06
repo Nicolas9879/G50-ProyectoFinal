@@ -144,12 +144,5 @@ public class ABMReserva {
         return a * dias;
     }
     
-//    
-//    private void finReserva(){
-//        //
-//    }
-//    private ABMReserva(ABMHuesped huesped){
-//        //
-//    }
 
 }
