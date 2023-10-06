@@ -144,5 +144,14 @@ public class ABMReserva {
         return a * dias;
     }
     
-
+public void finReserva(ABMHuesped huesped){
+    String sql= "DELETE FROM reserva WHERE id_huesped=?";
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+        }
+            
+}
 }
