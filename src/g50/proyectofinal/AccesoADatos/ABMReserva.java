@@ -189,6 +189,7 @@ public class ABMReserva {
                 tp.setCodigo(cod);
                 tp.setPersonasmaximas(rs.getInt("personasmaximas"));
                 tp.setPrecioxnoche(rs.getInt("precioxnoche"));
+                tp.setTipocama(rs.getString("tipocama"));
                 
             }
         } catch (SQLException ex) {
