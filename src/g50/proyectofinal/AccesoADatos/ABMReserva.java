@@ -188,6 +188,8 @@ public class ABMReserva {
                 tp.setCamas(rs.getInt("camas"));
                 tp.setCodigo(cod);
                 tp.setPersonasmaximas(rs.getInt("personasmaximas"));
+                tp.setPrecioxnoche(rs.getInt("precioxnoche"));
+                
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
