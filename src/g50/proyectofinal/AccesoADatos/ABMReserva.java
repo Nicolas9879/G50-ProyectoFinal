@@ -156,7 +156,14 @@ public class ABMReserva {
     }
 
     public ABMReserva buscaReserva(ABMHuesped huesped) {
-
+        String sql = "SELECT * FROM reserva WHERE dni=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, huesped.getDni());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+        }
     }
 
     public ABMReserva buscaReserva(LocalDate fechaentrada) {
