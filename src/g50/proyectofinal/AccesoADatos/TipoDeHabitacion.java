@@ -38,11 +38,14 @@ public class TipoDeHabitacion {
         this.precioxnoche = precioxnoche;
         this.tipohabitacion = tipohabitacion;
     }
+    
 
     public TipoDeHabitacion() {
         con = Conexion.getConexion() ;//necesario
     }
 
+    
+    
     public int getCodigo() {
         return codigo;
     }

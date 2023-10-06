@@ -46,41 +46,6 @@ public class ABMHabitaciones {
 
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /* METODO anulado.. Solo servia para cargar tipos de habitaciones -------------------------------------------------
-    
     public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
         try {
@@ -92,7 +57,7 @@ public class ABMHabitaciones {
             ps.setString(5, tip.getTipohabitacion());
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             int a = ps.executeUpdate();
-            
+
             System.out.println(a);
             JOptionPane.showMessageDialog(null, "Nuevo Tipo De Habitacion añadido");
         } catch (SQLException ex) {
@@ -100,6 +65,5 @@ public class ABMHabitaciones {
             String errorMessage = ex.getMessage();
             JOptionPane.showMessageDialog(null, "Error: " + errorMessage);
         }
-        
-    } ------------- METODO anulado.. Solo servia para cargar tipos de habitaciones.------------*/
-}
+
+    }
