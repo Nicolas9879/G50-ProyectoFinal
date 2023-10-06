@@ -153,6 +153,14 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
         }
+    }
+
+    public ABMReserva buscaReserva(ABMHuesped huesped) {
 
     }
+
+    public ABMReserva buscaReserva(LocalDate fechaentrada) {
+
+    }
+
 }
