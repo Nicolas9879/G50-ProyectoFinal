@@ -185,6 +185,7 @@ public class ABMReserva {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                tp.setCamas(rs.getInt("camas"));
 
             }
         } catch (SQLException ex) {
