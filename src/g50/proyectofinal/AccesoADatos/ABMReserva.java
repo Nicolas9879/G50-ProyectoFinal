@@ -5,8 +5,14 @@
 package g50.proyectofinal.AccesoADatos;
 
 import g50.proyectofinal.Entidades.ABMHuesped;
+import g50.proyectofinal.Entidades.Habitacion;
 import java.time.LocalDate;
 import java.util.List;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,18 +40,19 @@ public class ABMReserva {
 //Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
 //Un informe de Huespedes por dni como campo de búsqueda.
 //
-    
-    
+
     private ABMHuesped huesped;
     private TipoDeHabitacion tipohabitacion;
     private int cantidadpersonas;
     private LocalDate fechaentrada;
     private LocalDate fechasalida;
     private int importetotal;
-
+    private Connection con = null;
+    
     public ABMReserva() {
+        con = Conexion.getConexion();
     }
-
+    
     public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
@@ -54,62 +61,85 @@ public class ABMReserva {
         this.fechasalida = fechasalida;
         this.importetotal = importetotal;
     }
-
+    
     public ABMHuesped getHuesped() {
         return huesped;
     }
-
+    
     public void setHuesped(ABMHuesped huesped) {
         this.huesped = huesped;
     }
-
+    
     public TipoDeHabitacion getTipohabitacion() {
         return tipohabitacion;
     }
-
+    
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
     }
-
+    
     public int getCantidadpersonas() {
         return cantidadpersonas;
     }
-
+    
     public void setCantidadpersonas(int cantidadpersonas) {
         this.cantidadpersonas = cantidadpersonas;
     }
-
+    
     public LocalDate getFechaentrada() {
         return fechaentrada;
     }
-
+    
     public void setFechaentrada(LocalDate fechaentrada) {
         this.fechaentrada = fechaentrada;
     }
-
+    
     public LocalDate getFechasalida() {
         return fechasalida;
     }
-
+    
     public void setFechasalida(LocalDate fechasalida) {
         this.fechasalida = fechasalida;
     }
-
+    
     public int getImportetotal() {
         return importetotal;
     }
-
+    
     public void setImportetotal(int importetotal) {
         this.importetotal = importetotal;
     }
-
     
-    
-    
-//    
-//    private List<TipoDeHabitacion> CrearReserva() {
-//        //
-//    }
+    public ArrayList<Habitacion> CrearReserva(LocalDate entrada, LocalDate salida, int personas) {
+        int cod = 0;
+        String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, personas);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cod = rs.getInt("codigo");
+            }
+            Habitacion hab = new Habitacion();
+            ArrayList<Habitacion> habarray = new ArrayList();
+            String sql2 = "SELECT numero, estado FROM habitaciones WHERE codigo=?";
+            PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, cod);
+            ResultSet rs2 = ps2.executeQuery();
+            while (rs.next()) {
+               
+                hab.setNumero(rs.getInt("numero"));
+                hab.setEstado(rs.getBoolean("estado"));
+                habarray.add(hab);
+                
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
+        }
+        
+    }
 //
 //    private int calcularEstadia(){
 //        //
@@ -121,7 +151,5 @@ public class ABMReserva {
 //    private ABMReserva(ABMHuesped huesped){
 //        //
 //    }
-    
-    
-    
+
 }
