@@ -12,10 +12,16 @@ public class G50ProyectoFinal {
 
     public static void main(String[] args) {
         
-        TipoDeHabitacion tp=new TipoDeHabitacion(10, 10, "King Size", 150210  , "Suite Lujo");
-        ABMHabitaciones ab=new ABMHabitaciones();
         
-        ab.nuevoTipo(tp);
+        
+        
+        
+        
+//        TipoDeHabitacion tp=new TipoDeHabitacion(10, 10, "Doble", 80700  , "Estándar");
+//        ABMHabitaciones ab=new ABMHabitaciones();
+//        (Estándar simple, doble, Triple, o Suite Lujo
+                
+//        ab.nuevoTipo(tp);   
         
         
         // TODO code application logic here
