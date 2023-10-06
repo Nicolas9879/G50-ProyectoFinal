@@ -132,18 +132,16 @@ public class ABMReserva {
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 habarray.add(hab);
-
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
         }
         return habarray;
     }
-//
-//    private int calcularEstadia(){
-//        //
-//    }
+    
+    public int calcularEstadia() {
+
+    }
 //    
 //    private void finReserva(){
 //        //
