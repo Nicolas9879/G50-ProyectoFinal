@@ -244,7 +244,7 @@ public class ABMReserva {
                 huespeds.add(huesped1);
             }
             for (ABMHuesped browser : huespeds) {
-                System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE?
+                System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE? // PERO COMO PODRIA CREAR UNA TABLA DE LA NADA?
             }
 
         } catch (SQLException ex) {
