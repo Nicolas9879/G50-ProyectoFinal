@@ -69,6 +69,11 @@ public class ABMHuesped {
     public void setCelular(int celular) {
         this.celular = celular;
     }
+
+    @Override
+    public String toString() {
+        return "ABMHuesped{" + "nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", correo=" + correo + ", celular=" + celular + '}';
+    }
     
     
     
