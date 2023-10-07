@@ -206,7 +206,7 @@ public class ABMReserva {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, huesped.getDni());
+            ps.setInt(1, tip.getCodigo()); // revisa el codigo...asociado al tipo de habitacion
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
             
