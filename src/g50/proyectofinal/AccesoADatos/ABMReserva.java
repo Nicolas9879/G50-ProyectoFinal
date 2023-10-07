@@ -157,7 +157,7 @@ public class ABMReserva {
 
     public ABMReserva buscaReserva(ABMHuesped huesped) {
         ABMReserva reserva = new ABMReserva();
-1234567890123125125
+1234567890123
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
