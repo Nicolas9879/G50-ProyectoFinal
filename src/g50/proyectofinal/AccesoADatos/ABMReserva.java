@@ -157,7 +157,7 @@ public class ABMReserva {
 
     public ABMReserva buscaReserva(ABMHuesped huesped) {
         ABMReserva reserva = new ABMReserva();
-        
+
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -176,8 +176,57 @@ public class ABMReserva {
         }
         return reserva;
     }
-// METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
 
+    public ABMReserva buscaReserva(LocalDate fecha_entrada) {
+        ABMReserva reserva = new ABMReserva();
+
+        String sql = "SELECT * FROM reserva WHERE dni=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, huesped.getDni());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                reserva.setCantidadpersonas(rs.getInt("personas"));
+                reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
+                reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
+                reserva.setHuesped(huesped);
+                reserva.setImportetotal(rs.getInt("importe_total"));
+                reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
+        }
+        return reserva;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+// METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
     public TipoDeHabitacion codigoHabitacion(int cod) {
         TipoDeHabitacion tp = new TipoDeHabitacion();
         String sql = "SELECT * FROM tipohabitaciones WHERE codigo=?";
