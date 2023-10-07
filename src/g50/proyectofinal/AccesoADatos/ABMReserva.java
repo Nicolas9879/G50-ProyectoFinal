@@ -200,7 +200,14 @@ public class ABMReserva {
     }
 
     
+    // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
     
+    public void mostrarHabitacion(TipoDeHabitacion tip){
+        
+    }
+    
+//Un informe de Huespedes por dni como campo de búsqueda.
+
     
     
     
