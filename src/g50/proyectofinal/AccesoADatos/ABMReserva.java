@@ -227,8 +227,8 @@ public class ABMReserva {
         }
     }
 
-    public ABMReserva informeHuespedes(ABMHuesped huesped) {
-        ABMReserva reserva = new ABMReserva();
+    public ABMReserva informeHuespedes(int dni ) {
+
 
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
