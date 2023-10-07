@@ -204,6 +204,8 @@ public class ABMReserva {
     
     public void mostrarHabitacion(TipoDeHabitacion tip){
         
+        String sql ="SELECT * FROM habitaciones WHERE codigo=?";
+        
     }
     
 //Un informe de Huespedes por dni como campo de búsqueda.
