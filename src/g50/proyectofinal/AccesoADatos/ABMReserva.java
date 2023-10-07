@@ -227,30 +227,33 @@ public class ABMReserva {
         }
     }
 
-    public ABMReserva informeHuespedes(int dni ) {
-
-
+    public void informeHuespedes(int dni) {
+        ArrayList<ABMHuesped> huespeds = new ArrayList();
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, huesped.getDni());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                reserva.setCantidadpersonas(rs.getInt("personas"));
-                reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
-                reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
-                reserva.setHuesped(huesped);
-                reserva.setImportetotal(rs.getInt("importe_total"));
-                reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+                ABMHuesped huesped1 = null;
+                huesped1.setCelular(rs.getInt("celular"));
+                huesped1.setCorreo(rs.getString("correo"));
+                huesped1.setDni(rs.getInt("dni"));
+                huesped1.setDomicilio(rs.getString("domicilio"));
+                huesped1.setNombre(rs.getString("nombre"));
+                huespeds.add(huesped1);
             }
+            for (ABMHuesped browser : huespeds) {
+                System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE?
+            }
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
-        return reserva;
     }
+    //Un informe de Huespedes por dni como campo de búsqueda.
+    // METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
 
-//Un informe de Huespedes por dni como campo de búsqueda.
-// METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
     public TipoDeHabitacion codigoHabitacion(int cod) {
         TipoDeHabitacion tp = new TipoDeHabitacion();
         String sql = "SELECT * FROM tipohabitaciones WHERE codigo=?";
