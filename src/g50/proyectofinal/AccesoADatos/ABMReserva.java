@@ -202,6 +202,8 @@ public class ABMReserva {
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
     public void mostrarHabitacion(TipoDeHabitacion tip) {
 
+        ArrayList<Habitacion> habs = new ArrayList();
+
         String sql = "SELECT * FROM habitaciones WHERE codigo=?";
 
         try {
@@ -209,8 +211,17 @@ public class ABMReserva {
             ps.setInt(1, tip.getCodigo()); // revisa el codigo...asociado al tipo de habitacion
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-            
+                Habitacion hab = null;
+                hab.setNumero(rs.getInt("numero"));
+                hab.setCodigo(rs.getInt("codigo"));
+                hab.setEstado(rs.getBoolean("estado"));
+                habs.add(hab);
             }
+
+            for (Habitacion browser : habs) {
+                System.out.println(browser);
+            }
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }

@@ -54,6 +54,14 @@ public class Habitacion {
         return tipohabitacion;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
     }
