@@ -199,42 +199,24 @@ public class ABMReserva {
         return reserva;
     }
 
-    
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
-    
-    public void mostrarHabitacion(TipoDeHabitacion tip){
-        
-        String sql ="SELECT * FROM habitaciones WHERE codigo=?";
-        
-    }
-    
-//Un informe de Huespedes por dni como campo de búsqueda.
+    public void mostrarHabitacion(TipoDeHabitacion tip) {
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        String sql = "SELECT * FROM habitaciones WHERE codigo=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, huesped.getDni());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+            
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
+        }
+    }
+
+//Un informe de Huespedes por dni como campo de búsqueda.
 // METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
     public TipoDeHabitacion codigoHabitacion(int cod) {
         TipoDeHabitacion tp = new TipoDeHabitacion();
