@@ -157,7 +157,7 @@ public class ABMReserva {
 
     public ABMReserva buscaReserva(ABMHuesped huesped) {
         ABMReserva reserva = new ABMReserva();
-12
+        
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -177,6 +177,7 @@ public class ABMReserva {
         return reserva;
     }
 // METODO EXTRA <<<<<// METODO EXTRA <<<<<// METODO EXTRA <<<<<
+
     public TipoDeHabitacion codigoHabitacion(int cod) {
         TipoDeHabitacion tp = new TipoDeHabitacion();
         String sql = "SELECT * FROM tipohabitaciones WHERE codigo=?";
