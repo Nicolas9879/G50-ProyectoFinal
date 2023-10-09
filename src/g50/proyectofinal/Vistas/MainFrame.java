@@ -147,7 +147,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void JMenuCambiarPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuCambiarPreciosActionPerformed
         // TODO add your handling code here:
-        CambiarPreciosHabFrame cambiar = new JinterAlumno();
+        CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMenuCambiarPreciosActionPerformed
