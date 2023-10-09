@@ -39,7 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         JMInformeHuesped = new javax.swing.JMenuItem();
         JMFinalizarReserva = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        JMInformeHuespedExtra = new javax.swing.JMenuItem();
         JMAcercaDe = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -133,8 +133,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Huespedes");
 
-        jMenuItem9.setText("Informe Huesped");
-        jMenu3.add(jMenuItem9);
+        JMInformeHuespedExtra.setText("Informe Huesped");
+        JMInformeHuespedExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMInformeHuespedExtraActionPerformed(evt);
+            }
+        });
+        jMenu3.add(JMInformeHuespedExtra);
 
         jMenuBar1.add(jMenu3);
 
@@ -224,6 +229,13 @@ public class MainFrame extends javax.swing.JFrame {
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMFinalizarReservaActionPerformed
 
+    private void JMInformeHuespedExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMInformeHuespedExtraActionPerformed
+        // TODO add your handling code here:
+          InformeHuespedesFrame cambiar = new InformeHuespedesFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMInformeHuespedExtraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +279,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMCrearReserva;
     private javax.swing.JMenuItem JMFinalizarReserva;
     private javax.swing.JMenuItem JMInformeHuesped;
+    private javax.swing.JMenuItem JMInformeHuespedExtra;
     private javax.swing.JMenuItem JMenuCambiarPrecios;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
@@ -274,7 +287,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
