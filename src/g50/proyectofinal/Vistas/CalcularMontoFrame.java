@@ -40,7 +40,7 @@ public class CalcularMontoFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+aasdasdfagsfasdasdaaaaaa
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
