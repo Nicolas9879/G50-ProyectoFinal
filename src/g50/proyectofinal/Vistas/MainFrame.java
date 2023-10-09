@@ -30,8 +30,16 @@ public class MainFrame extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -60,12 +68,39 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Habitaciones");
+
+        jMenuItem2.setText("Cambiar Precios ");
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Reservas");
+
+        jMenuItem5.setText("Consultar Habitaciones");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem8.setText("Calcular Monto Estadia");
+        jMenu2.add(jMenuItem8);
+
+        jMenuItem3.setText("Crear Reserva");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem6.setText("Busca Reservas");
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem7.setText("Informe Huesped");
+        jMenu2.add(jMenuItem7);
+
+        jMenuItem4.setText("Finalizar Reserva");
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Huespedes");
+
+        jMenuItem9.setText("Informe Huesped");
+        jMenu3.add(jMenuItem9);
+
         jMenuBar1.add(jMenu3);
 
         jMenu11.setText("Acerca De");
@@ -148,6 +183,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
