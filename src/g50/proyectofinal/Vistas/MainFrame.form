@@ -24,32 +24,38 @@
             <Property name="text" type="java.lang.String" value="Reservas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="JMConsultarHabitaciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar Habitaciones"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMConsultarHabitacionesActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="JMCalcularMontoEstadia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Calcular Monto Estadia"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="JMCrearReserva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Reserva"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="JMBuscaReserva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Busca Reservas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="JMInformeHuesped">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Informe Huesped"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMInformeHuespedActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="JMFinalizarReserva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Finalizar Reserva"/>
               </Properties>
@@ -68,7 +74,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu11">
+        <Menu class="javax.swing.JMenu" name="JMAcercaDe">
           <Properties>
             <Property name="text" type="java.lang.String" value="Acerca De"/>
           </Properties>

@@ -32,15 +32,15 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         JMenuCambiarPrecios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        JMConsultarHabitaciones = new javax.swing.JMenuItem();
+        JMCalcularMontoEstadia = new javax.swing.JMenuItem();
+        JMCrearReserva = new javax.swing.JMenuItem();
+        JMBuscaReserva = new javax.swing.JMenuItem();
+        JMInformeHuesped = new javax.swing.JMenuItem();
+        JMFinalizarReserva = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
+        JMAcercaDe = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,23 +81,33 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu2.setText("Reservas");
 
-        jMenuItem5.setText("Consultar Habitaciones");
-        jMenu2.add(jMenuItem5);
+        JMConsultarHabitaciones.setText("Consultar Habitaciones");
+        JMConsultarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMConsultarHabitacionesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(JMConsultarHabitaciones);
 
-        jMenuItem8.setText("Calcular Monto Estadia");
-        jMenu2.add(jMenuItem8);
+        JMCalcularMontoEstadia.setText("Calcular Monto Estadia");
+        jMenu2.add(JMCalcularMontoEstadia);
 
-        jMenuItem3.setText("Crear Reserva");
-        jMenu2.add(jMenuItem3);
+        JMCrearReserva.setText("Crear Reserva");
+        jMenu2.add(JMCrearReserva);
 
-        jMenuItem6.setText("Busca Reservas");
-        jMenu2.add(jMenuItem6);
+        JMBuscaReserva.setText("Busca Reservas");
+        jMenu2.add(JMBuscaReserva);
 
-        jMenuItem7.setText("Informe Huesped");
-        jMenu2.add(jMenuItem7);
+        JMInformeHuesped.setText("Informe Huesped");
+        JMInformeHuesped.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMInformeHuespedActionPerformed(evt);
+            }
+        });
+        jMenu2.add(JMInformeHuesped);
 
-        jMenuItem4.setText("Finalizar Reserva");
-        jMenu2.add(jMenuItem4);
+        JMFinalizarReserva.setText("Finalizar Reserva");
+        jMenu2.add(JMFinalizarReserva);
 
         jMenuBar1.add(jMenu2);
 
@@ -108,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu11.setText("Acerca De");
+        JMAcercaDe.setText("Acerca De");
 
         jMenuItem1.setText("Acerca ");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,9 +126,9 @@ public class MainFrame extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem1);
+        JMAcercaDe.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu11);
+        jMenuBar1.add(JMAcercaDe);
 
         setJMenuBar(jMenuBar1);
 
@@ -151,6 +161,17 @@ public class MainFrame extends javax.swing.JFrame {
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMenuCambiarPreciosActionPerformed
+
+    private void JMConsultarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConsultarHabitacionesActionPerformed
+        // TODO add your handling code here:
+      CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMConsultarHabitacionesActionPerformed
+
+    private void JMInformeHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMInformeHuespedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JMInformeHuespedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,20 +209,20 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JMAcercaDe;
+    private javax.swing.JMenuItem JMBuscaReserva;
+    private javax.swing.JMenuItem JMCalcularMontoEstadia;
+    private javax.swing.JMenuItem JMConsultarHabitaciones;
+    private javax.swing.JMenuItem JMCrearReserva;
+    private javax.swing.JMenuItem JMFinalizarReserva;
+    private javax.swing.JMenuItem JMInformeHuesped;
     private javax.swing.JMenuItem JMenuCambiarPrecios;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
