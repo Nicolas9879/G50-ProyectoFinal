@@ -8,12 +8,12 @@ package g50.proyectofinal.Vistas;
  *
  * @author whatu
  */
-public class CambiarPreciosFrame extends javax.swing.JInternalFrame {
+public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Habitaciones
      */
-    public CambiarPreciosFrame() {
+    public CambiarPreciosHabFrame() {
         initComponents();
     }
 
