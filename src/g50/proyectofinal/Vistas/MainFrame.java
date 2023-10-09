@@ -30,7 +30,7 @@ public class MainFrame extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        JMenuCambiarPrecios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -69,8 +69,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu1.setText("Habitaciones");
 
-        jMenuItem2.setText("Cambiar Precios ");
-        jMenu1.add(jMenuItem2);
+        JMenuCambiarPrecios.setText("Cambiar Precios ");
+        JMenuCambiarPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuCambiarPreciosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(JMenuCambiarPrecios);
 
         jMenuBar1.add(jMenu1);
 
@@ -140,6 +145,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void JMenuCambiarPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuCambiarPreciosActionPerformed
+        // TODO add your handling code here:
+        CambiarPreciosHabFrame cambiar = new JinterAlumno();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMenuCambiarPreciosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +188,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMenuCambiarPrecios;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu11;
@@ -183,7 +196,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
