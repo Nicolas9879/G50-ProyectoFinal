@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package g50.proyectofinal.Vistas;
-s
+
 /**
  *
  * @author whatu
