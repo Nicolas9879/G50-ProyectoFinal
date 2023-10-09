@@ -90,12 +90,27 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.add(JMConsultarHabitaciones);
 
         JMCalcularMontoEstadia.setText("Calcular Monto Estadia");
+        JMCalcularMontoEstadia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMCalcularMontoEstadiaActionPerformed(evt);
+            }
+        });
         jMenu2.add(JMCalcularMontoEstadia);
 
         JMCrearReserva.setText("Crear Reserva");
+        JMCrearReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMCrearReservaActionPerformed(evt);
+            }
+        });
         jMenu2.add(JMCrearReserva);
 
         JMBuscaReserva.setText("Busca Reservas");
+        JMBuscaReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMBuscaReservaActionPerformed(evt);
+            }
+        });
         jMenu2.add(JMBuscaReserva);
 
         JMInformeHuesped.setText("Informe Huesped");
@@ -107,6 +122,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.add(JMInformeHuesped);
 
         JMFinalizarReserva.setText("Finalizar Reserva");
+        JMFinalizarReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMFinalizarReservaActionPerformed(evt);
+            }
+        });
         jMenu2.add(JMFinalizarReserva);
 
         jMenuBar1.add(jMenu2);
@@ -164,14 +184,45 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void JMConsultarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConsultarHabitacionesActionPerformed
         // TODO add your handling code here:
-      CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
+        CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMConsultarHabitacionesActionPerformed
 
     private void JMInformeHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMInformeHuespedActionPerformed
         // TODO add your handling code here:
+        InformeHuespedesFrame cambiar = new InformeHuespedesFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
     }//GEN-LAST:event_JMInformeHuespedActionPerformed
+
+    private void JMCalcularMontoEstadiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMCalcularMontoEstadiaActionPerformed
+        // TODO add your handling code here:
+        CalcularMontoFrame cambiar = new CalcularMontoFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMCalcularMontoEstadiaActionPerformed
+
+    private void JMCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMCrearReservaActionPerformed
+        // TODO add your handling code here:
+        CrearReservaFrame cambiar = new CrearReservaFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMCrearReservaActionPerformed
+
+    private void JMBuscaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMBuscaReservaActionPerformed
+        // TODO add your handling code here:
+        BusquedaReservasFrame cambiar = new BusquedaReservasFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMBuscaReservaActionPerformed
+
+    private void JMFinalizarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMFinalizarReservaActionPerformed
+        // TODO add your handling code here:
+        FinReservaFrame cambiar = new FinReservaFrame();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMFinalizarReservaActionPerformed
 
     /**
      * @param args the command line arguments
