@@ -145,18 +145,27 @@ public class ABMReserva {
         String sql = "INSERT INTO huesped (nombre, dni, domicilio, correo, celular) VALUES (?.?.?.?.?)";
 
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, nombre);
             ps.setInt(2, dni);
             ps.setString(3, domi);
-           ps.setString(4, correo);
-           ps.setString(5, celular);
-           ps.executeUpdate();
+            ps.setString(4, correo);
+            ps.setString(5, celular);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int idHuesped = (rs.getInt("id_huesped"));
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
 
-        String sql = "INSERT INTO reserva (fecha_entrada, fecha_salida, importe_total, personas) VALUES (?, ?, ?,?)";
+        String sql2 = "INSERT INTO reserva (id_huesped, fecha_entrada, fecha_salida, importe_total, personas) VALUES (?, ?, ?,?)";
+        try {
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR");
+        }
 
     }
 
