@@ -139,7 +139,9 @@ public class ABMReserva {
         return habarray;
         
         
-        
+        public void crearReserva2(int dni){
+            
+        }
         
         
         
