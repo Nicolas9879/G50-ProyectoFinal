@@ -40,6 +40,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="cc" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -79,6 +84,9 @@
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="Creado en el a&#xf1;o 1976, el GRAN HOTEL cuenta con  250 habitaciones, que van desde Suites de Lujo a modestas, pero no menos lujosas habitaciones simples.&#xa;&#xa;El GRAN HOTEL, como todo hotel 5 estrellas cuenta con piscina,spa, minibar, gimnasio y atencion al cliente las 24 horas, en el GRAN HOTEL tu comodidad es nuestra prioridad.&#xa;&#xa;Ademas, el GRAN HOTEL esta situado cerca de las playas y teatros mas reconocidos de toda la ciudad, por lo que es una excelente ubicacion para disfrutar a pleno la temporada.&#xa;&#xa;Saludos, EL GRAN HOTEL.&#xa;&#xa;"/>
             <Property name="autoscrolls" type="boolean" value="false"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>

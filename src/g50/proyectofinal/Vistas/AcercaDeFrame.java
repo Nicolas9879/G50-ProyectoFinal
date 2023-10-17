@@ -36,12 +36,15 @@ public class AcercaDeFrame extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("Creado en el año 1976, el GRAN HOTEL cuenta con  250 habitaciones, que van desde Suites de Lujo a modestas, pero no menos lujosas habitaciones simples.\n\nEl GRAN HOTEL, como todo hotel 5 estrellas cuenta con piscina,spa, minibar, gimnasio y atencion al cliente las 24 horas, en el GRAN HOTEL tu comodidad es nuestra prioridad.\n\nAdemas, el GRAN HOTEL esta situado cerca de las playas y teatros mas reconocidos de toda la ciudad, por lo que es una excelente ubicacion para disfrutar a pleno la temporada.\n\nSaludos, EL GRAN HOTEL.\n\n");
         jTextArea1.setAutoscrolls(false);
+        jTextArea1.setBorder(null);
         jTextArea1.setFocusable(false);
         jTextArea1.setOpaque(false);
 
