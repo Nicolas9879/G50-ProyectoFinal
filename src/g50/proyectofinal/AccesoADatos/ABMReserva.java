@@ -139,7 +139,8 @@ public class ABMReserva {
         return habarray;
     }
 
-    public void crearReserva2(int dni, int numerohab) {
+    public void crearReserva2(int dni, int numerohab) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
+        
 
     }
 
