@@ -48,11 +48,11 @@ public class ABMReserva {
     private LocalDate fechasalida;
     private int importetotal;
     private Connection con = null;
-
+    
     public ABMReserva() {
         con = Conexion.getConexion();
     }
-
+    
     public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
@@ -61,55 +61,55 @@ public class ABMReserva {
         this.fechasalida = fechasalida;
         this.importetotal = importetotal;
     }
-
+    
     public ABMHuesped getHuesped() {
         return huesped;
     }
-
+    
     public void setHuesped(ABMHuesped huesped) {
         this.huesped = huesped;
     }
-
+    
     public TipoDeHabitacion getTipohabitacion() {
         return tipohabitacion;
     }
-
+    
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
     }
-
+    
     public int getCantidadpersonas() {
         return cantidadpersonas;
     }
-
+    
     public void setCantidadpersonas(int cantidadpersonas) {
         this.cantidadpersonas = cantidadpersonas;
     }
-
+    
     public LocalDate getFechaentrada() {
         return fechaentrada;
     }
-
+    
     public void setFechaentrada(LocalDate fechaentrada) {
         this.fechaentrada = fechaentrada;
     }
-
+    
     public LocalDate getFechasalida() {
         return fechasalida;
     }
-
+    
     public void setFechasalida(LocalDate fechasalida) {
         this.fechasalida = fechasalida;
     }
-
+    
     public int getImportetotal() {
         return importetotal;
     }
-
+    
     public void setImportetotal(int importetotal) {
         this.importetotal = importetotal;
     }
-
+    
     public ArrayList<Habitacion> CrearReserva(int personas) {
         int cod = 0;
         ArrayList<Habitacion> habarray = new ArrayList();
@@ -122,13 +122,13 @@ public class ABMReserva {
                 cod = rs.getInt("codigo");
             }
             Habitacion hab = new Habitacion();
-
+            
             String sql2 = "SELECT numero, estado FROM habitaciones WHERE codigo=?";
             PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cod);
             ResultSet rs2 = ps2.executeQuery();
             while (rs.next()) {
-
+                
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 habarray.add(hab);
@@ -138,12 +138,12 @@ public class ABMReserva {
         }
         return habarray;
     }
-
+    
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int personas,
             Date fechasalida, Date fechaentrada, int monto) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
         int idHuesped = 0;
         String sql = "INSERT INTO huesped (nombre, dni, domicilio, correo, celular) VALUES (?.?.?.?.?)";
-
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, nombre);
@@ -158,7 +158,7 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-
+        
         String sql2 = "INSERT INTO reserva (id_huesped, fecha_entrada, fecha_salida, importe_total, personas) VALUES (?, ?, ?,?,?)";
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2);
@@ -166,18 +166,19 @@ public class ABMReserva {
             ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
             ps2.setInt(4, monto);
-                    ps2.setInt(5, personas);
+            ps2.setInt(5, personas);
+            ps2.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-
+        
     }
-
+    
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
         double a = tip.getPrecioxnoche();
         return a * dias;
     }
-
+    
     public void finReserva(ABMHuesped huesped) {
         String sql = "DELETE FROM reserva WHERE dni=?";
         try {
@@ -188,10 +189,10 @@ public class ABMReserva {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
         }
     }
-
+    
     public ABMReserva buscaReserva(ABMHuesped huesped) {
         ABMReserva reserva = new ABMReserva();
-
+        
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -210,10 +211,10 @@ public class ABMReserva {
         }
         return reserva;
     }
-
+    
     public ABMReserva buscaReserva(LocalDate fecha_entrada) {
         ABMReserva reserva = new ABMReserva();
-
+        
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -235,11 +236,11 @@ public class ABMReserva {
 
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
     public void mostrarHabitacion(TipoDeHabitacion tip) {
-
+        
         ArrayList<Habitacion> habs = new ArrayList();
-
+        
         String sql = "SELECT * FROM habitaciones WHERE codigo=?";
-
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, tip.getCodigo()); // revisa el codigo...asociado al tipo de habitacion
@@ -251,16 +252,16 @@ public class ABMReserva {
                 hab.setEstado(rs.getBoolean("estado"));
                 habs.add(hab);
             }
-
+            
             for (Habitacion browser : habs) {
                 System.out.println(browser);
             }
-
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
     }
-
+    
     public void informeHuespedes(int dni) {
         ArrayList<ABMHuesped> huespeds = new ArrayList();
         String sql = "SELECT * FROM reserva WHERE dni=?";
@@ -280,7 +281,7 @@ public class ABMReserva {
             for (ABMHuesped browser : huespeds) {
                 System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE? // PERO COMO PODRIA CREAR UNA TABLA DE LA NADA?
             }
-
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
@@ -294,7 +295,7 @@ public class ABMReserva {
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cod);
-
+            
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 tp.setCamas(rs.getInt("camas"));
@@ -303,7 +304,7 @@ public class ABMReserva {
                 tp.setPrecioxnoche(rs.getInt("precioxnoche"));
                 tp.setTipocama(rs.getString("tipocama"));
                 tp.setTipohabitacion(rs.getString("tipohabitacion"));
-
+                
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
