@@ -151,6 +151,7 @@ public class ABMReserva {
             ps.setString(3, domi);
            ps.setString(4, correo);
            ps.setString(5, celular);
+           ps.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
