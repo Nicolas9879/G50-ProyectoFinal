@@ -139,8 +139,8 @@ public class ABMReserva {
         return habarray;
     }
 
-    public void crearReserva2(int dni, int numerohab) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
-        String sql = "INSERT INTO reserva (tipohabitacion, numero, estado) VALUES (?, ?, ?)";
+    public void crearReserva2(int dni, int numerohab, int personas,LocalDate fechasalida,LocalDate fechaentrada) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
+        String sql = "INSERT INTO reserva (fecha_entrada, fecha_salida, importe_total, personas) VALUES (?, ?, ?,?)";
 
     }
 
