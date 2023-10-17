@@ -189,7 +189,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void JMConsultarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConsultarHabitacionesActionPerformed
         // TODO add your handling code here:
-        CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
+        HabitacionesClasificadasFrame cambiar = new HabitacionesClasificadasFrame();
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMConsultarHabitacionesActionPerformed
