@@ -110,7 +110,7 @@ public class ABMReserva {
         this.importetotal = importetotal;
     }
 
-    public ArrayList<Habitacion> CrearReserva( int personas) {
+    public ArrayList<Habitacion> CrearReserva(int personas) {
         int cod = 0;
         ArrayList<Habitacion> habarray = new ArrayList();
         String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
@@ -140,8 +140,8 @@ public class ABMReserva {
     }
 
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int personas,
-           Date fechasalida, Date fechaentrada) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
-  int idHuesped=0;
+            Date fechasalida, Date fechaentrada, int monto) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
+        int idHuesped = 0;
         String sql = "INSERT INTO huesped (nombre, dni, domicilio, correo, celular) VALUES (?.?.?.?.?)";
 
         try {
@@ -163,8 +163,10 @@ public class ABMReserva {
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2);
             ps2.setInt(1, idHuesped);
-            ps2.setDate(2,  fechaentrada);
+            ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
+            ps2.setInt(4, monto);
+                    ps2.setInt(5, personas);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
