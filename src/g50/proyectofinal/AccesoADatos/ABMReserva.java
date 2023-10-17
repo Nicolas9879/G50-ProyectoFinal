@@ -164,6 +164,7 @@ public class ABMReserva {
             PreparedStatement ps2 = con.prepareStatement(sql2);
             ps2.setInt(1, idHuesped);
             ps2.setDate(2,  fechaentrada);
+            ps2.setDate(3, fechasalida);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
