@@ -137,17 +137,10 @@ public class ABMReserva {
             JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
         }
         return habarray;
-        
-        
-        public void crearReserva2(int dni){
-            
-        }
-        
-        
-        
-        
-        
-        
+    }
+
+    public void crearReserva2(int dni, int numerohab) {
+
     }
 
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
