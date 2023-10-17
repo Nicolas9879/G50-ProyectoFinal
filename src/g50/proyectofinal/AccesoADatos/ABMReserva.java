@@ -168,6 +168,7 @@ public class ABMReserva {
             ps2.setInt(4, monto);
             ps2.setInt(5, personas);
             ps2.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Reserva realizada con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
