@@ -21,11 +21,11 @@ public class Habitacion {
     private Connection con;
     private LocalDate fechasalida;
 
-    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion,LocalDate fechasalida) {
+    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion, LocalDate fechasalida) {
         this.numero = numero;
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
-        this.fechasalida=fechasalida;
+        this.fechasalida = fechasalida;
     }
 
     public Habitacion() {
@@ -67,6 +67,14 @@ public class Habitacion {
 
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
+    }
+
+    public LocalDate getFechasalida() {
+        return fechasalida;
+    }
+
+    public void setFechasalida(LocalDate fechasalida) {
+        this.fechasalida = fechasalida;
     }
 
     @Override
