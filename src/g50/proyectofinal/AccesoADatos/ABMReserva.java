@@ -172,8 +172,10 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        
+        String sql3="UPDATE "
     }
+    
+   
     
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
         double a = tip.getPrecioxnoche();
