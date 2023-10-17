@@ -7,6 +7,7 @@ package g50.proyectofinal.Entidades;
 import g50.proyectofinal.AccesoADatos.Conexion;
 import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,11 +19,13 @@ public class Habitacion {
     private TipoDeHabitacion tipohabitacion;
     private int codigo;
     private Connection con;
+    private LocalDate fechasalida;
 
-    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion) {
+    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion,LocalDate fechasalida) {
         this.numero = numero;
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
+        this.fechasalida=fechasalida;
     }
 
     public Habitacion() {
