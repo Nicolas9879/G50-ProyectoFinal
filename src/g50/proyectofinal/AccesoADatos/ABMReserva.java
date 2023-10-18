@@ -172,7 +172,7 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        String sql3 = "UPDATE  habitacion  SET estado=? WHERE numero=?";
+        String sql3 = "UPDATE  habitacion  SET estado=? WHERE numero=?";     // MARCA HABITACION COMO OCUPADA
         try {
             PreparedStatement ps3 = con.prepareStatement(sql3);
             ps3.setBoolean(1, true);
@@ -180,6 +180,9 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
+        
+        //La Habitación se marca Ocupada(1), en la fecha de salida vuelve a su estado Libre.
+// ES NECESARIO USAR QUARTZ... LO CUAL NO ES ENSEÑADO EN LA CURSADA... DEBO PRACTICARLO Y VOLVER A TERMINAR EL METODO
     }
     
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
