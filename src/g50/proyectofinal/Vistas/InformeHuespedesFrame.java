@@ -111,7 +111,8 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
     private void JBBuscaHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaHuespedesActionPerformed
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
-ar.informeHuespedes(Integer.parseInt(JTDni.getText());
+        ar.informeHuespedes(Integer.parseInt(JTDni.getText()));
+
 
     }//GEN-LAST:event_JBBuscaHuespedesActionPerformed
 
