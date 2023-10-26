@@ -4,6 +4,8 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.AccesoADatos.ABMReserva;
+
 /**
  *
  * @author whatu
@@ -30,7 +32,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         JBBuscaHuespedes = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        JTDni = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -51,9 +53,9 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        JTDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                JTDniActionPerformed(evt);
             }
         });
 
@@ -68,7 +70,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JTDni, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(110, 110, 110))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
@@ -82,7 +84,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBBuscaHuespedes)
                 .addContainerGap(105, Short.MAX_VALUE))
@@ -102,23 +104,23 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void JTDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_JTDniActionPerformed
 
     private void JBBuscaHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaHuespedesActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+        ABMReserva ar = new ABMReserva();
+ar.informeHuespedes(JTDni.getText());
+
     }//GEN-LAST:event_JBBuscaHuespedesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBBuscaHuespedes;
+    private javax.swing.JTextField JTDni;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
