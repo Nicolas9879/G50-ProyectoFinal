@@ -15,6 +15,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
      */
     public HabitacionesClasificadasFrame() {
         initComponents();
+           this.setTitle("Habitaciones del hotel");
     }
 
     /**
