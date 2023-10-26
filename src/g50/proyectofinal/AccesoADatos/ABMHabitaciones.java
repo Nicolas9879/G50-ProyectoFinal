@@ -30,22 +30,23 @@ public class ABMHabitaciones {
 
     public void altaHabitacion(Habitacion habit) {
 
-        String sql = "INSERT INTO habitaciones ( numero, estado, piso) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO habitaciones ( numero, codigo, estado, piso) VALUES (?,?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, habit.getNumero());
-//            ps.setInt(2, habit.getNumero());
-            ps.setBoolean(2, habit.isEstado());
-            ps.setInt(3, habit.getPiso());
+            ps.setInt(2, habit.getTipohabitacion().getCodigo());
+            ps.setBoolean(3, habit.isEstado());
+            ps.setInt(4, habit.getPiso());
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
+//            JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
+            System.out.println("Habitacion Habilitada");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
+            System.out.println("ERROR");
         }
 
     }
