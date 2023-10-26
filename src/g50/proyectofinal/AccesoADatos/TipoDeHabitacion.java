@@ -93,7 +93,7 @@ public class TipoDeHabitacion {
 
     public void cambiarPrecio(String tipohabitacion, double precio) {
         // BUSCA UN TIPO DE HABITACION Y ACTUALIZA SU PRECIO
-        String sql = "UPDATE  tipohabitacion  SET precioxnoche=? WHERE tipohabitacion=?";
+        String sql = "UPDATE  tipohabitaciones  SET precioxnoche=? WHERE tipohabitacion=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
