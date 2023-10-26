@@ -7,6 +7,8 @@ package g50.proyectofinal.AccesoADatos;
 import g50.proyectofinal.Entidades.Habitacion;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,7 +56,12 @@ public class ABMHabitaciones {
         Habitacion hab = new Habitacion();
 
         String sql2 = "SELECT numero, estado, piso FROM habitaciones";
-        PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps2;
+        try {
+            ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
+        }
         ps.setInt(1, cod);
         ResultSet rs2 = ps2.executeQuery();
         while (rs.next()) {
@@ -63,19 +70,11 @@ public class ABMHabitaciones {
             hab.setEstado(rs.getBoolean("estado"));
             habarray.add(hab);
         }
+
+        return habarray;
     }
-    catch (SQLException ex
 
-    
-        ) {
-            JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
-    }
-    return habarray ;
-}
-
-}
-
-/*   public void nuevoTipo(TipoDeHabitacion tip) {
+    /*   public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
