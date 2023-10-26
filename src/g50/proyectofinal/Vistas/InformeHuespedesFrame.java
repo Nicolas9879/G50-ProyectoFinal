@@ -17,6 +17,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
      */
     public InformeHuespedesFrame() {
         initComponents();
+              this.setTitle("Informe huesped");
     }
 
     /**

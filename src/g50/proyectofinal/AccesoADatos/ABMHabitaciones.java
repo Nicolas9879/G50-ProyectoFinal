@@ -55,7 +55,7 @@ public class ABMHabitaciones {
         ABMReserva ar = new ABMReserva();
         ArrayList<Habitacion> habarray = new ArrayList();
 
-        Habitacion hab = new Habitacion();
+        TipoDeHabitacion tb = new TipoDeHabitacion();
 
         String sql2 = "SELECT numero, estado, piso, codigo FROM habitaciones";
 
@@ -64,12 +64,16 @@ public class ABMHabitaciones {
 
             ResultSet rs = ps2.executeQuery();
             while (rs.next()) {
-
+                Habitacion hab = new Habitacion();
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 hab.setPiso(rs.getInt("piso"));
-                hab.setTipo(ar.codigoHabitacion(rs.getInt("codigo")).getTipohabitacion());
+
+                tb = ar.codigoHabitacion(rs.getInt("codigo"));
+                hab.setTipo(tb.getTipohabitacion());
                 habarray.add(hab);
+                System.out.println(hab);
+
             }
 
         } catch (SQLException ex) {

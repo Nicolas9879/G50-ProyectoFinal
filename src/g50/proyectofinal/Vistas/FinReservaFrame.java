@@ -15,6 +15,7 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
      */
     public FinReservaFrame() {
         initComponents();
+           this.setTitle("Finalizador de Reservas");
     }
 
     /**

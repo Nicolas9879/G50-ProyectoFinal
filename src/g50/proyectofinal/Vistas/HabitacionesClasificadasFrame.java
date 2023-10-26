@@ -48,9 +48,9 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("HABITACIONES DEL HOTEL");
 
         JTableHotel.setModel(new javax.swing.table.DefaultTableModel(
@@ -74,26 +74,25 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addGap(258, 258, 258)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(63, 63, 63)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +105,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
     private void llenarTabla() {
         //CARGA LA TABLA!!!!
         ABMHabitaciones th = new ABMHabitaciones();
-        ArrayList<Habitacion> hab = new ArrayList();
+        List<Habitacion> hab = new ArrayList();
         // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
         hab = th.habitacionesDisponibles();
 
@@ -119,12 +118,22 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         if (hab != null) {
             for (Habitacion browser : hab) { //
 
-                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), browser.isEstado()});
+                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
+
             }
+
         }
-
         JTableHotel.setModel(model);
+    }
 
+    private String estado2(boolean state) {  // Cambia los booleans de false por libre y true por ocupado
+        String str;
+        if (state == false) {
+            str = "libre";
+        } else {
+            str = "ocupado";
+        }
+        return str;
     }
 
 

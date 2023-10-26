@@ -18,6 +18,7 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
      */
     public CambiarPreciosHabFrame() {
         initComponents();
+              this.setTitle("Cambiar precio de habitaciones");
     }
 
     /**

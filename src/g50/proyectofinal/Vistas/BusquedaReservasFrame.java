@@ -15,6 +15,7 @@ public class BusquedaReservasFrame extends javax.swing.JInternalFrame {
      */
     public BusquedaReservasFrame() {
         initComponents();
+              this.setTitle("Buscador de reservas");
     }
 
     /**

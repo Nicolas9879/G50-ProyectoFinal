@@ -11,7 +11,8 @@ import java.util.Random;
 public class G50ProyectoFinal {
 
     public static void main(String[] args) {
-       
+         ABMReserva ar = new ABMReserva();
+         System.out.println(ar.codigoHabitacion(1));
         }
     }
 //SET FOREIGN_KEY_CHECKS = 0;

@@ -15,6 +15,7 @@ public class CalcularMontoFrame extends javax.swing.JInternalFrame {
      */
     public CalcularMontoFrame() {
         initComponents();
+              this.setTitle("Calculadora de Monto a Pagar");
     }
 
     /**
