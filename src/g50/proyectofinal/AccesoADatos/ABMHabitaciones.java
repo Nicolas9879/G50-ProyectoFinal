@@ -6,6 +6,7 @@ package g50.proyectofinal.AccesoADatos;
 
 import g50.proyectofinal.Entidades.Habitacion;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,13 +47,35 @@ public class ABMHabitaciones {
 
     }
 
-    public void habitacionesDisponibles(){
-        
+    public ArrayList habitacionesDisponibles() {
+
+        ArrayList<Habitacion> habarray = new ArrayList();
+
+        Habitacion hab = new Habitacion();
+
+        String sql2 = "SELECT numero, estado, piso FROM habitaciones";
+        PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, cod);
+        ResultSet rs2 = ps2.executeQuery();
+        while (rs.next()) {
+
+            hab.setNumero(rs.getInt("numero"));
+            hab.setEstado(rs.getBoolean("estado"));
+            habarray.add(hab);
+        }
     }
+    catch (SQLException ex
+
     
-    
-    
- /*   public void nuevoTipo(TipoDeHabitacion tip) {
+        ) {
+            JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
+    }
+    return habarray ;
+}
+
+}
+
+/*   public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -71,5 +94,4 @@ public class ABMHabitaciones {
             String errorMessage = ex.getMessage();
             JOptionPane.showMessageDialog(null, "Error: " + errorMessage);
         }*/
-
-    }
+}
