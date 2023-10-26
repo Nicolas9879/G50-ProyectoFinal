@@ -63,7 +63,7 @@ public class ABMReserva {
     }
     
     public ABMHuesped getHuesped() {
-        return huesped;
+        return huesped; // es necesario?
     }
     
     public void setHuesped(ABMHuesped huesped) {
@@ -138,7 +138,7 @@ public class ABMReserva {
         }
         return habarray;
     } // EL PRIMER METODO DEVUELVE UNA TABLA CON LAS HABITACIONES QUE CUMPLEN LOS REQUISITOS
-    
+
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int personas,
             Date fechasalida, Date fechaentrada, int monto) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
         int idHuesped = 0;
@@ -180,7 +180,7 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        
+
         //La Habitación se marca Ocupada(1), en la fecha de salida vuelve a su estado Libre.
 // ES NECESARIO USAR QUARTZ... LO CUAL NO ES ENSEÑADO EN LA CURSADA... DEBO PRACTICARLO Y VOLVER A TERMINAR EL METODO
     }
@@ -274,6 +274,7 @@ public class ABMReserva {
     }
     
     public void informeHuespedes(int dni) {
+        ABMHuesped huesped1 = null;
         ArrayList<ABMHuesped> huespeds = new ArrayList();
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
@@ -281,7 +282,6 @@ public class ABMReserva {
             ps.setInt(1, huesped.getDni());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                ABMHuesped huesped1 = null;
                 huesped1.setCelular(rs.getInt("celular"));
                 huesped1.setCorreo(rs.getString("correo"));
                 huesped1.setDni(rs.getInt("dni"));
@@ -292,7 +292,7 @@ public class ABMReserva {
             for (ABMHuesped browser : huespeds) {
                 System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE? // PERO COMO PODRIA CREAR UNA TABLA DE LA NADA?
             }
-            
+            JOptionPane.showMessageDialog(null, huesped1.toString());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
