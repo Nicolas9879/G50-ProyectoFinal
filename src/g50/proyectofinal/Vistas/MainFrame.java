@@ -36,7 +36,6 @@ public class MainFrame extends javax.swing.JFrame {
         JMCalcularMontoEstadia = new javax.swing.JMenuItem();
         JMCrearReserva = new javax.swing.JMenuItem();
         JMBuscaReserva = new javax.swing.JMenuItem();
-        JMInformeHuesped = new javax.swing.JMenuItem();
         JMFinalizarReserva = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         JMInformeHuespedExtra = new javax.swing.JMenuItem();
@@ -113,14 +112,6 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu2.add(JMBuscaReserva);
 
-        JMInformeHuesped.setText("Informe Huesped");
-        JMInformeHuesped.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMInformeHuespedActionPerformed(evt);
-            }
-        });
-        jMenu2.add(JMInformeHuesped);
-
         JMFinalizarReserva.setText("Finalizar Reserva");
         JMFinalizarReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,13 +184,6 @@ public class MainFrame extends javax.swing.JFrame {
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMConsultarHabitacionesActionPerformed
-
-    private void JMInformeHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMInformeHuespedActionPerformed
-        // TODO add your handling code here:
-        InformeHuespedesFrame cambiar = new InformeHuespedesFrame();
-        jDesktopPane1.add(cambiar);
-        cambiar.setVisible(true);
-    }//GEN-LAST:event_JMInformeHuespedActionPerformed
 
     private void JMCalcularMontoEstadiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMCalcularMontoEstadiaActionPerformed
         // TODO add your handling code here:
@@ -278,7 +262,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMConsultarHabitaciones;
     private javax.swing.JMenuItem JMCrearReserva;
     private javax.swing.JMenuItem JMFinalizarReserva;
-    private javax.swing.JMenuItem JMInformeHuesped;
     private javax.swing.JMenuItem JMInformeHuespedExtra;
     private javax.swing.JMenuItem JMenuCambiarPrecios;
     private javax.swing.JDesktopPane jDesktopPane1;

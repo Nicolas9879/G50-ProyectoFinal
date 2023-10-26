@@ -56,14 +56,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMBuscaReservaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="JMInformeHuesped">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Informe Huesped"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMInformeHuespedActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMFinalizarReserva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Finalizar Reserva"/>

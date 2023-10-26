@@ -137,7 +137,7 @@ public class ABMReserva {
             JOptionPane.showMessageDialog(null, "Error al buscar tipos de habitacion");
         }
         return habarray;
-    }
+    } // EL PRIMER METODO DEVUELVE UNA TABLA CON LAS HABITACIONES QUE CUMPLEN LOS REQUISITOS
     
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int personas,
             Date fechasalida, Date fechaentrada, int monto) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
