@@ -31,8 +31,8 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        JRBLibres = new javax.swing.JRadioButton();
+        JRBOcupadas = new javax.swing.JRadioButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -59,9 +59,14 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jRadioButton1.setText("Libres");
+        JRBLibres.setText("Libres");
+        JRBLibres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBLibresActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Ocupadas");
+        JRBOcupadas.setText("Ocupadas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,9 +83,9 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jRadioButton1)
+                .addComponent(JRBLibres)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
+                .addComponent(JRBOcupadas)
                 .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,8 +94,8 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(JRBLibres)
+                    .addComponent(JRBOcupadas))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -110,13 +115,21 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JRBLibresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBLibresActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JRBLibresActionPerformed
+public void llenarTabla(){
+    
+}
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton JRBLibres;
+    private javax.swing.JRadioButton JRBOcupadas;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
