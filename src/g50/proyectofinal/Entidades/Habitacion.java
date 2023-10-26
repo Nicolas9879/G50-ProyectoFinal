@@ -15,14 +15,16 @@ import javax.swing.JOptionPane;
 public class Habitacion {
 
     private int numero;
+    private int piso;
     private boolean estado;
     private TipoDeHabitacion tipohabitacion;
     private int codigo;
     private Connection con;
     private LocalDate fechasalida;
 
-    public Habitacion(int numero, boolean estado, TipoDeHabitacion tipohabitacion, LocalDate fechasalida) {
+    public Habitacion(int numero, int piso, boolean estado, TipoDeHabitacion tipohabitacion, LocalDate fechasalida) {
         this.numero = numero;
+        this.piso = piso;
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
         this.fechasalida = fechasalida;
@@ -37,6 +39,15 @@ public class Habitacion {
 
     }
 
+    public int getPiso() {
+        return piso;
+    }
+
+    public void setPiso(int piso) {
+        this.piso = piso;
+    }
+
+    
     public int getNumero() {
         return numero;
     }

@@ -4,6 +4,10 @@
  */
 package g50.proyectofinal.Vistas;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author whatu
@@ -15,7 +19,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
      */
     public HabitacionesClasificadasFrame() {
         initComponents();
-           this.setTitle("Habitaciones del hotel");
+        this.setTitle("Habitaciones del hotel");
     }
 
     /**
@@ -118,12 +122,37 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
 
     private void JRBLibresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBLibresActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_JRBLibresActionPerformed
-public void llenarTabla(){
-    
+    private void llenarTabla() {
+        //CARGA LA TABLA!!!!
+        InscripcionData mid = new InscripcionData();
+        List<Materia> materias = new ArrayList();
+        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODO
+        if (jRadioButton1_Inscripta.isSelected() == true) {
+
+            materias = mid.obtenerMateriasCursadas(idAlumno);
+        } else if (jRadioButton2_NoInscripta.isSelected() == true) {
+            materias = mid.obtenerMateriasNOCursadas(idAlumno);
+
+        }
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Numero");
+        model.addColumn("Piso");
+        model.addColumn("");
+
+        if (materias != null) {
+            for (Materia materia : materias) { //
+
+                model.addRow(new Object[]{materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+            }
+        }
+        Jtable_TABLA.setModel(model);
+
+    }
 }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton JRBLibres;
