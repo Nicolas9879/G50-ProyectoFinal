@@ -23,54 +23,54 @@ public class ABMHabitaciones {
     // Deberia  de crearse en la base de datos.
     // añadir habitaciones
     private Connection con = null;
-    
+
     public ABMHabitaciones() {
         con = Conexion.getConexion();//necesario
     }
-    
+
     public void altaHabitacion(Habitacion habit) {
-        
-        String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado, piso) VALUES (?,?, ?, ?)";
+
+        String sql = "INSERT INTO habitaciones ( numero, estado, piso) VALUES (?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, habit.getTipohabitacion().getTipohabitacion());
-            ps.setInt(2, habit.getNumero());
-            ps.setBoolean(3, habit.isEstado());
-            ps.setInt(4, habit.getPiso());
+            ps.setInt(1, habit.getNumero());
+//            ps.setInt(2, habit.getNumero());
+            ps.setBoolean(2, habit.isEstado());
+            ps.setInt(3, habit.getPiso());
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
         }
-        
+
     }
-    
+
     public ArrayList habitacionesDisponibles() {
         ABMReserva ar = new ABMReserva();
         ArrayList<Habitacion> habarray = new ArrayList();
-        
+
         Habitacion hab = new Habitacion();
-        
+
         String sql2 = "SELECT numero, estado, piso, codigo FROM habitaciones";
-        
+
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
-            
+
             ResultSet rs = ps2.executeQuery();
             while (rs.next()) {
-                
+
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 hab.setPiso(rs.getInt("piso"));
                 hab.setTipo(ar.codigoHabitacion(rs.getInt("codigo")).getTipohabitacion());
                 habarray.add(hab);
             }
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
         }

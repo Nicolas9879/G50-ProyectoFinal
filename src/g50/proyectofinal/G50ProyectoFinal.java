@@ -4,15 +4,21 @@
  */
 package g50.proyectofinal;
 
-import g50.proyectofinal.AccesoADatos.ABMHabitaciones;
-import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
+import g50.proyectofinal.AccesoADatos.*;
 import g50.proyectofinal.Entidades.Habitacion;
 
 public class G50ProyectoFinal {
-    
+
     public static void main(String[] args) {
+
+        ABMReserva ar = new ABMReserva();
+        TipoDeHabitacion th = ar.codigoHabitacion(1);
         ABMHabitaciones ab = new ABMHabitaciones();
-        ab.altaHabitacion(habit);
+        for (int i = 2; i < 100; i++) {
+            Habitacion habit = new Habitacion(i, th.getTipohabitacion(), 1, true, th);
+
+            ab.altaHabitacion(habit);
+        }
     }
-    
+
 }
