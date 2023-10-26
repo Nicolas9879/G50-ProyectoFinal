@@ -130,6 +130,8 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
 
     private void JBCambiarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCambiarPrecioActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_JBCambiarPrecioActionPerformed
 
 
