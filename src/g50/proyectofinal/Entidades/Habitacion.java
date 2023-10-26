@@ -18,12 +18,14 @@ public class Habitacion {
     private int piso;
     private boolean estado;
     private TipoDeHabitacion tipohabitacion;
+    private String tipo;
     private int codigo;
     private Connection con;
     private LocalDate fechasalida;
 
-    public Habitacion(int numero, int piso, boolean estado, TipoDeHabitacion tipohabitacion, LocalDate fechasalida) {
+    public Habitacion(int numero, String tipo, int piso, boolean estado, TipoDeHabitacion tipohabitacion, LocalDate fechasalida) {
         this.numero = numero;
+        this.piso = piso;
         this.piso = piso;
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
@@ -37,6 +39,14 @@ public class Habitacion {
     public Habitacion(int codigo) {
         this.codigo = codigo;
 
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public int getPiso() {

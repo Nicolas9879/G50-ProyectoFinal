@@ -4,6 +4,9 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.AccesoADatos.ABMHabitaciones;
+import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
+import g50.proyectofinal.Entidades.Habitacion;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +23,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
     public HabitacionesClasificadasFrame() {
         initComponents();
         this.setTitle("Habitaciones del hotel");
+        llenarTabla();
     }
 
     /**
@@ -35,9 +39,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        JRBLibres = new javax.swing.JRadioButton();
-        JRBOcupadas = new javax.swing.JRadioButton();
+        JTableHotel = new javax.swing.JTable();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -46,12 +48,12 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("HABITACIONES DEL HOTEL");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTableHotel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -62,16 +64,7 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
                 "Numero", "Piso", "Precio", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        JRBLibres.setText("Libres");
-        JRBLibres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JRBLibresActionPerformed(evt);
-            }
-        });
-
-        JRBOcupadas.setText("Ocupadas");
+        jScrollPane1.setViewportView(JTableHotel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,22 +79,12 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
                         .addGap(139, 139, 139)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(JRBLibres)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JRBOcupadas)
-                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JRBLibres)
-                    .addComponent(JRBOcupadas))
-                .addGap(18, 18, 18)
+                .addGap(63, 63, 63)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -120,48 +103,36 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JRBLibresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBLibresActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_JRBLibresActionPerformed
     private void llenarTabla() {
         //CARGA LA TABLA!!!!
-        InscripcionData mid = new InscripcionData();
-        List<Materia> materias = new ArrayList();
-        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODO
-        if (jRadioButton1_Inscripta.isSelected() == true) {
-
-            materias = mid.obtenerMateriasCursadas(idAlumno);
-        } else if (jRadioButton2_NoInscripta.isSelected() == true) {
-            materias = mid.obtenerMateriasNOCursadas(idAlumno);
-
-        }
+        ABMHabitaciones th = new ABMHabitaciones();
+        ArrayList<Habitacion> hab = new ArrayList();
+        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
+        hab = th.habitacionesDisponibles();
 
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Numero");
         model.addColumn("Piso");
-        model.addColumn("Precio");
+        model.addColumn("Tipo");
         model.addColumn("Estado");
 
-        if (materias != null) {
-            for (Materia materia : materias) { //
+        if (hab != null) {
+            for (Habitacion browser : hab) { //
 
-                model.addRow(new Object[]{materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), browser.isEstado()});
             }
         }
-        Jtable_TABLA.setModel(model);
+
+        JTableHotel.setModel(model);
 
     }
-}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton JRBLibres;
-    private javax.swing.JRadioButton JRBOcupadas;
+    private javax.swing.JTable JTableHotel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

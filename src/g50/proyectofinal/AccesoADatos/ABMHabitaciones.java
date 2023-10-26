@@ -30,7 +30,7 @@ public class ABMHabitaciones {
 
     public void altaHabitacion(Habitacion habit) {
 
-        String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado, piso) VALUES (?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
         try {
@@ -50,12 +50,12 @@ public class ABMHabitaciones {
     }
 
     public ArrayList habitacionesDisponibles() {
-
+        ABMReserva ar = new ABMReserva();
         ArrayList<Habitacion> habarray = new ArrayList();
 
         Habitacion hab = new Habitacion();
 
-        String sql2 = "SELECT numero, estado, piso FROM habitaciones";
+        String sql2 = "SELECT numero, estado, piso, codigo FROM habitaciones";
 
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -66,6 +66,7 @@ public class ABMHabitaciones {
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 hab.setPiso(rs.getInt("piso"));
+                hab.setTipo(ar.codigoHabitacion(rs.getInt("codigo")).getTipohabitacion());
                 habarray.add(hab);
             }
 
