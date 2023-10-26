@@ -38,14 +38,11 @@ public class TipoDeHabitacion {
         this.precioxnoche = precioxnoche;
         this.tipohabitacion = tipohabitacion;
     }
-    
 
     public TipoDeHabitacion() {
-        con = Conexion.getConexion() ;//necesario
+        con = Conexion.getConexion();//necesario
     }
 
-    
-    
     public int getCodigo() {
         return codigo;
     }
@@ -114,8 +111,6 @@ public class TipoDeHabitacion {
         }
 
     }
-
-   
 
     @Override
     public String toString() {
