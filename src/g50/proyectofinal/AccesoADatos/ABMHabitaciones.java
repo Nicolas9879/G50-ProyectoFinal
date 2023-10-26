@@ -46,6 +46,12 @@ public class ABMHabitaciones {
 
     }
 
+    public void habitacionesDisponibles(){
+        
+    }
+    
+    
+    
  /*   public void nuevoTipo(TipoDeHabitacion tip) {
         String sql = "INSERT INTO tipohabitaciones (precioxnoche,camas,personasmaximas,tipocama, tipohabitacion) VALUES(?,?,?,?,?)";
         try {

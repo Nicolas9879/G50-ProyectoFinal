@@ -140,7 +140,8 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Numero");
         model.addColumn("Piso");
-        model.addColumn("");
+        model.addColumn("Precio");
+        model.addColumn("Estado");
 
         if (materias != null) {
             for (Materia materia : materias) { //

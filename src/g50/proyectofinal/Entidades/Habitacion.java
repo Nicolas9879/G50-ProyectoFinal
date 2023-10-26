@@ -47,7 +47,6 @@ public class Habitacion {
         this.piso = piso;
     }
 
-    
     public int getNumero() {
         return numero;
     }
