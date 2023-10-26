@@ -29,7 +29,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JBBuscaHuespedes = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
         setClosable(true);
@@ -44,7 +44,12 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("INFORME HUESPED");
 
-        jButton1.setText("BUSCAR");
+        JBBuscaHuespedes.setText("BUSCAR");
+        JBBuscaHuespedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBuscaHuespedesActionPerformed(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +72,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
                 .addGap(110, 110, 110))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
-                .addComponent(jButton1)
+                .addComponent(JBBuscaHuespedes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,7 +84,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(JBBuscaHuespedes)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -101,9 +106,16 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void JBBuscaHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaHuespedesActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_JBBuscaHuespedesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton JBBuscaHuespedes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
