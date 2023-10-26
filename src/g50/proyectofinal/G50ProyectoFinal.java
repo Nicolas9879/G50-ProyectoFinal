@@ -9,10 +9,10 @@ import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
 import g50.proyectofinal.Entidades.Habitacion;
 
 public class G50ProyectoFinal {
-
+    
     public static void main(String[] args) {
         ABMHabitaciones ab = new ABMHabitaciones();
-
+        ab.altaHabitacion(habit);
     }
-
+    
 }
