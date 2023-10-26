@@ -23,13 +23,13 @@ public class ABMHabitaciones {
     // Deberia  de crearse en la base de datos.
     // añadir habitaciones
     private Connection con = null;
-    
+
     public ABMHabitaciones() {
         con = Conexion.getConexion();//necesario
     }
-    
+
     public void altaHabitacion(Habitacion habit) {
-        
+
         String sql = "INSERT INTO habitacion (tipohabitacion, numero, estado) VALUES (?, ?, ?)";
 
 // Preparar la consulta y establecer los valores para el nuevo tipo de habitación
@@ -41,39 +41,38 @@ public class ABMHabitaciones {
 
 // Ejecutar la consulta para agregar el nuevo tipo de habitación
             ps.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Habitacion dada de alta con éxito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo al dar de alta habitación");
         }
-        
+
     }
-    
+
     public ArrayList habitacionesDisponibles() {
-        
+
         ArrayList<Habitacion> habarray = new ArrayList();
-        
+
         Habitacion hab = new Habitacion();
-        
+
         String sql2 = "SELECT numero, estado, piso FROM habitaciones";
-        
+
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
-            
+
             ResultSet rs = ps2.executeQuery();
             while (rs.next()) {
-                
+
                 hab.setNumero(rs.getInt("numero"));
                 hab.setEstado(rs.getBoolean("estado"));
                 hab.setPiso(rs.getInt("piso"));
                 habarray.add(hab);
             }
-            
-            return habarray;
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
         }
-        
+        return habarray;
     }
 
     /*   public void nuevoTipo(TipoDeHabitacion tip) {
