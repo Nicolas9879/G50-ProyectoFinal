@@ -4,6 +4,9 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.*;
+import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
+
 /**
  *
  * @author whatu
@@ -30,9 +33,9 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         JBCambiarPrecio = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        JCTipoHab = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        JTPrecio = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,10 +58,10 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("TIPO DE HABITACION");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suite Lujo", "Doble", "Triple", "Estandar simple" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        JCTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suite Lujo", "Doble", "Triple", "Estandar simple" }));
+        JCTipoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                JCTipoHabActionPerformed(evt);
             }
         });
 
@@ -80,8 +83,8 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 194, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(JCTipoHab, 0, 194, Short.MAX_VALUE)
+                            .addComponent(JTPrecio)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(JBCambiarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -98,11 +101,11 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCTipoHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(JBCambiarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -124,24 +127,27 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void JCTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCTipoHabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_JCTipoHabActionPerformed
 
     private void JBCambiarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCambiarPrecioActionPerformed
         // TODO add your handling code here:
+        JTPrecio.getText();
+        TipoDeHabitacion td = new TipoDeHabitacion();
+        String tipoHab = JCTipoHab.getSelectedItem().toString();
         
-        
+        td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
     }//GEN-LAST:event_JBCambiarPrecioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCambiarPrecio;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> JCTipoHab;
+    private javax.swing.JTextField JTPrecio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
