@@ -4,6 +4,11 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.AccesoADatos.ABMReserva;
+import g50.proyectofinal.Entidades.ABMHuesped;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author whatu
@@ -15,7 +20,8 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
      */
     public FinReservaFrame() {
         initComponents();
-           this.setTitle("Finalizador de Reservas");
+        cargarHuespedes();
+        this.setTitle("Finalizador de Reservas");
     }
 
     /**
@@ -31,7 +37,7 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JBFinalizar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -47,7 +53,12 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Huesped");
 
-        jButton1.setText("FINALIZAR");
+        JBFinalizar.setText("FINALIZAR");
+        JBFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFinalizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,7 +77,7 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
                 .addGap(79, 79, 79))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(152, 152, 152)
-                .addComponent(jButton1)
+                .addComponent(JBFinalizar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,7 +90,7 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(58, 58, 58)
-                .addComponent(jButton1)
+                .addComponent(JBFinalizar)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -99,9 +110,26 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JBFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinalizarActionPerformed
+        // TODO add your handling code here:
+        ABMReserva ar = new ABMReserva();
+        ar.finReserva((ABMHuesped) jComboBox1.getSelectedItem());
 
+    }//GEN-LAST:event_JBFinalizarActionPerformed
+
+    private void cargarHuespedes() { //CARGA LOS Huespedes !! A LA JCOMBOBOX!!!
+        ArrayList<ABMHuesped> huespedes = new ArrayList();
+        ABMHuesped ab = new ABMHuesped();
+        huespedes = ab.listaHuespedes();
+
+        for (ABMHuesped huesped : huespedes) {
+
+            jComboBox1.addItem(huesped.getNombre());
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton JBFinalizar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

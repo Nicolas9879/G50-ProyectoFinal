@@ -4,26 +4,18 @@
  */
 package g50.proyectofinal.Vistas;
 
-import g50.proyectofinal.AccesoADatos.ABMHabitaciones;
-import g50.proyectofinal.AccesoADatos.ABMReserva;
-import g50.proyectofinal.Entidades.Habitacion;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author whatu
  */
-public class CrearReservaFrame extends javax.swing.JInternalFrame {
+public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ReservasFrame
      */
-    public CrearReservaFrame() {
+    public CrearReservaFrame2() {
         initComponents();
         this.setTitle("Crear Reserva");
-
     }
 
     /**
@@ -68,6 +60,12 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         jLabel1.setText("CREAR RESERVA");
 
         jLabel4.setText("PERSONAS ");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,42 +154,12 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
     private void JBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActionPerformed
         // TODO add your handling code here:
-        ABMReserva ar = new ABMReserva();
-
-        llenarTabla();
     }//GEN-LAST:event_JBBuscarActionPerformed
-    private void llenarTabla() {
-        //CARGA LA TABLA!!!!
-        ABMReserva ar = new ABMReserva();
-        ArrayList<Habitacion> habarray = ar.CrearReserva(Integer.parseInt(jTextField1.getText()));
 
-        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Numero");
-        model.addColumn("Piso");
-        model.addColumn("Tipo");
-        model.addColumn("Estado");
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+         TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-        if (habarray != null) {
-            for (Habitacion browser : habarray) { //
-
-                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
-              
-            }
-
-        }
-        jTable2.setModel(model);
-    }
-
-    private String estado2(boolean state) {  // Cambia los booleans de false por libre y true por ocupado
-        String str;
-        if (state == false) {
-            str = "libre";
-        } else {
-            str = "ocupado";
-        }
-        return str;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAceptar;
