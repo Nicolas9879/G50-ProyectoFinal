@@ -9,6 +9,8 @@ import g50.proyectofinal.AccesoADatos.ABMReserva;
 import g50.proyectofinal.Entidades.Habitacion;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -168,7 +170,16 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
     private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
         // TODO add your handling code here:
-        CrearReservaFrame2 cr= new CrearReservaFrame2();
+        if (jTable2.getSelectedRow() != -1) {
+            CrearReservaFrame2 frame2 = new CrearReservaFrame2();
+            JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
+            desktopPane.add(frame2);
+            frame2.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una habitacion para continuar");
+        }//        this.dispose();
+//condition) ? true return statement : false return statement
     }//GEN-LAST:event_JBAceptarActionPerformed
     private void llenarTabla() {
         //CARGA LA TABLA!!!!
@@ -186,7 +197,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
             for (Habitacion browser : habarray) { //
 
                 model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
-              
+
             }
 
         }
@@ -202,7 +213,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         }
         return str;
     }
-
+// condition) ? true return statement : false return statements
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAceptar;
     private javax.swing.JButton JBBuscar;

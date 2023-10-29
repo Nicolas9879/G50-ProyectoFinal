@@ -4,6 +4,8 @@
  */
 package g50.proyectofinal.Vistas;
 
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author whatu
@@ -173,6 +175,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+   public JDesktopPane getDesktopPane() {
+        return jDesktopPane1;
+    }
+    
+    
+    
     private void JMenuCambiarPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuCambiarPreciosActionPerformed
         // TODO add your handling code here:
         CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
