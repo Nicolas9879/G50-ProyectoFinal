@@ -173,6 +173,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
         // TODO add your handling code here:
         if (jTable2.getSelectedRow() != -1) {
+            
             CrearReservaFrame2 frame2 = new CrearReservaFrame2();
             JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
             desktopPane.add(frame2);
