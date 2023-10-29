@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
  * @author whatu
  */
 public class CrearReservaFrame extends javax.swing.JInternalFrame {
+    private int personas;
+    private int numerohabi;
 
     /**
      * Creates new form ReservasFrame
