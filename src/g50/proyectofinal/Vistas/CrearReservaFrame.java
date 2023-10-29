@@ -168,7 +168,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
     private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
         // TODO add your handling code here:
-        
+        CrearReservaFrame2 cr= new CrearReservaFrame2();
     }//GEN-LAST:event_JBAceptarActionPerformed
     private void llenarTabla() {
         //CARGA LA TABLA!!!!
