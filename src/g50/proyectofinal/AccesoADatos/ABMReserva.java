@@ -112,7 +112,7 @@ public class ABMReserva {
 
     public ArrayList<Habitacion> codigoHab(int personas) {
         int cod = 0;
-        String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=?";
+        String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
         ArrayList<Habitacion> habarray = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -132,7 +132,7 @@ public class ABMReserva {
     public ArrayList<Habitacion> CrearReserva(int codigo) {
         ArrayList<Habitacion> habarray = new ArrayList();
         ABMReserva ab = new ABMReserva();
-        String sql = "SELECT numero, estado, piso FROM habitaciones WHERE codigo=?";
+        String sql = "SELECT numero, estado, piso FROM habitaciones WHERE codigo=? AND estado=0";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, codigo);

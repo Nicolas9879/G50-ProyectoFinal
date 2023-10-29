@@ -71,13 +71,13 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -90,6 +90,11 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         });
 
         JBAceptar.setText("ACEPTAR");
+        JBAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,10 +165,15 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
         llenarTabla();
     }//GEN-LAST:event_JBBuscarActionPerformed
+
+    private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JBAceptarActionPerformed
     private void llenarTabla() {
         //CARGA LA TABLA!!!!
         ABMReserva ar = new ABMReserva();
-        ArrayList<Habitacion> habarray = ar.CrearReserva(Integer.parseInt(jTextField1.getText()));
+        ArrayList<Habitacion> habarray = ar.codigoHab(Integer.parseInt(jTextField1.getText()));
 
         // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
         DefaultTableModel model = new DefaultTableModel();
