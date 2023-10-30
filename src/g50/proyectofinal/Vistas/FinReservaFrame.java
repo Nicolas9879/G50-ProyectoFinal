@@ -48,6 +48,11 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         jLabel1.setText("FINALIZADOR DE RESERVAS");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Huesped");
 
@@ -114,6 +119,10 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         ar.finReserva((ABMHuesped) jComboBox1.getSelectedItem());
 
     }//GEN-LAST:event_JBFinalizarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void cargarHuespedes() { //CARGA LOS Huespedes !! A LA JCOMBOBOX!!!
         ArrayList<ABMHuesped> huespedes = new ArrayList();
