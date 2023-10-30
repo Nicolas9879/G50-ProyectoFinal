@@ -48,6 +48,7 @@ public class ABMReserva {
     private LocalDate fechasalida;
     private int importetotal;
     private Connection con = null;
+    private int cod;
 
     public ABMReserva() {
         con = Conexion.getConexion();
@@ -111,7 +112,7 @@ public class ABMReserva {
     }
 
     public ArrayList<Habitacion> codigoHab(int personas) {
-        int cod = 0;
+       cod=0;
         String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
         ArrayList<Habitacion> habarray = new ArrayList();
         try {
@@ -155,7 +156,7 @@ public class ABMReserva {
         return habarray;
     }
 
-    public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int piso, int personas, int codigo,
+    public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int piso, int personas,
             Date fechasalida, Date fechaentrada) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
 
         String sql = "INSERT INTO huesped (nombre, dni , domicilio, correo, celular,piso) VALUES (?.?.?.?.?,?)";
@@ -173,6 +174,8 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
+ABMReserva ar=new ABMReserva();
+TipoDeHabitacion tp=ar.codigoHabitacion(cod);
 
         String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero) VALUES (?, ?, ?,?,?,?)";
         try {
@@ -180,7 +183,7 @@ public class ABMReserva {
             ps2.setInt(1, dni);
             ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
-            ps2.setInt(4, monto);
+            ps2.setInt(4, ar.codigoHabitacion(cod));
             ps2.setInt(5, personas);
             ps2.setInt(6, numerohab);
             ps2.executeUpdate();
