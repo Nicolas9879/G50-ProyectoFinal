@@ -9,6 +9,7 @@ import g50.proyectofinal.Entidades.Habitacion;
 import java.time.LocalDate;
 import java.util.List;
 import java.sql.*;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +113,7 @@ public class ABMReserva {
     }
 
     public ArrayList<Habitacion> codigoHab(int personas) {
-       cod=0;
+        cod = 0;
         String sql = "SELECT codigo FROM tipohabitaciones WHERE personasmaximas=? ";
         ArrayList<Habitacion> habarray = new ArrayList();
         try {
@@ -174,10 +175,12 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-ABMReserva ar=new ABMReserva();
-TipoDeHabitacion tp=ar.codigoHabitacion(cod);
+        ABMReserva ar = new ABMReserva();
+        TipoDeHabitacion tp = ar.codigoHabitacion(cod);
 // AHORA FALTA CALCULAR LA DIFERENCIA DE DIAS PARA USAR EL METODO CALCULAR ESTADIA
-
+// UTILIZO CHRONOUNIT para lograrlo.
+        int days = (int) ChronoUnit.DAYS.between(fechasalida.toLocalDate(), fechaentrada.toLocalDate());
+/// AHORA PUEDO INVOCAR EL METODO Y CALCULAR EL MONTO DE LA ESTADIA
 
 
         String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero) VALUES (?, ?, ?,?,?,?)";
@@ -186,7 +189,7 @@ TipoDeHabitacion tp=ar.codigoHabitacion(cod);
             ps2.setInt(1, dni);
             ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
-            ps2.setInt(4, ar.codigoHabitacion(cod));
+            ps2.setDouble(4, ar.calcularEstadia(tp, days));  //Calculo el costo de la estadia y lo envio
             ps2.setInt(5, personas);
             ps2.setInt(6, numerohab);
             ps2.executeUpdate();
