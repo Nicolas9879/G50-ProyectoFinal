@@ -203,9 +203,9 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         // Convert java.util.Date to java.sql.Date
         java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
         // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
-        CrearReservaFrame reserva1 = new CrearReservaFrame();
 
-        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero,piso1,personas1, sqlSalida, sqlEntrada);
+        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero, piso1, personas1, sqlSalida, sqlEntrada);
+        this.dispose();
     }//GEN-LAST:event_JBCrearReservaActionPerformed
 
 

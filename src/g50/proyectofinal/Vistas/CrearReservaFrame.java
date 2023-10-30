@@ -23,6 +23,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private int numerohabi;
     private int piso1;
 // HAY UN BUG? SI VOS USAS EL MISMO NOMBRE PARA EL PARAMETRO Y LA VARIABLE SE BUGEA Y APARECE NULL?
+
     /**
      * Creates new form ReservasFrame
      */
@@ -183,11 +184,10 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         if (row != -1) {
             // Get the data from column 0 of the selected row
             Object data = jTable2.getModel().getValueAt(row, 0);
-            Object data2 = jTable2.getModel().getValueAt(row, 1);
-            // Do something with the data
             numerohabi = (int) data;
+            Object data2 = jTable2.getModel().getValueAt(row, 2);
             piso1 = (int) data2;
-        
+            // Do something with the data
 
         }
 

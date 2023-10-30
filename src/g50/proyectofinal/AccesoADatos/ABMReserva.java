@@ -211,7 +211,7 @@ public class ABMReserva {
         int days = (int) ChronoUnit.DAYS.between(fechasalida.toLocalDate(), fechaentrada.toLocalDate());
 /// AHORA PUEDO INVOCAR EL METODO Y CALCULAR EL MONTO DE LA ESTADIA
 
-        String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero) VALUES (?, ?, ?,?,?,?)";
+        String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero,piso) VALUES (?, ?, ?,?,?,?,?)";
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2);
             ps2.setInt(1, dni);
@@ -220,6 +220,7 @@ public class ABMReserva {
             ps2.setDouble(4, ar.calcularEstadia(tp, days));  //Calculo el costo de la estadia y lo envio
             ps2.setInt(5, personas);
             ps2.setInt(6, numerohab);
+            ps2.setInt(7, piso);
             ps2.executeUpdate();
             JOptionPane.showMessageDialog(null, "Reserva realizada con éxito");
         } catch (SQLException ex) {
