@@ -22,7 +22,7 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
      */
     public BuscaReservaPorDNI() {
         initComponents();
-                this.setTitle("Buscador de reservas por DNI");
+        this.setTitle("Buscador de reservas por DNI");
     }
 
     /**
@@ -122,42 +122,37 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        llenarTabla(Integer.parseInt(jTextField1.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
- private void llenarTabla(int dni) {
+    private void llenarTabla(int dni) {
         //CARGA LA TABLA!!!!
-        ABMReserva ar=new ABMReserva();
-        ArrayList<ABMReserva> reservas=ar.buscaReserva(dni);
+        ABMReserva ar = new ABMReserva();
+        ArrayList<ABMReserva> reservas = ar.buscaReserva(dni);
         // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
 
-
         DefaultTableModel model = new DefaultTableModel();
-        
+
         model.addColumn("DNI");
         model.addColumn("Personas");
-           model.addColumn("Nº Habitacion");
+        model.addColumn("Nº Habitacion");
         model.addColumn("Piso");
-            model.addColumn("FechaEntrada");
+        model.addColumn("FechaEntrada");
         model.addColumn("FechaSalida");
         model.addColumn("Monto a Pagar");
 
         if (reservas != null) {
             for (ABMReserva browser : reservas) { //
 
-                model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), estado2(browser.isEstado())});
+                model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), browser.getPiso(), browser.getFechaentrada(), browser.getFechasalida(), browser.getImportetotal()});
 
             }
 
         }
-        JTableHotel.setModel(model);
+        jTable1.setModel(model);
     }
 
-    
-    
-    
-    
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
