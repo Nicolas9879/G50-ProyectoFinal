@@ -129,9 +129,9 @@ public class HabitacionesClasificadasFrame extends javax.swing.JInternalFrame {
     private String estado2(boolean state) {  // Cambia los booleans de false por libre y true por ocupado
         String str;
         if (state == false) {
-            str = "libre";
+            str = "LIBRE";
         } else {
-            str = "ocupado";
+            str = "OCUPADO";
         }
         return str;
     }
