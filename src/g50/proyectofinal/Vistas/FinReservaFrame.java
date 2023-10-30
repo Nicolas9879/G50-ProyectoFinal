@@ -8,6 +8,7 @@ import g50.proyectofinal.AccesoADatos.ABMReserva;
 import g50.proyectofinal.Entidades.ABMHuesped;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,6 +44,8 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("FINALIZADOR DE RESERVAS");
@@ -116,7 +119,20 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
     private void JBFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinalizarActionPerformed
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
-        ar.finReserva(Integer.parseInt(jTextField1.getText()));
+        int choice = JOptionPane.showConfirmDialog(null, "¿Esta seguro de que quiere eliminar esta reserva?", "Advertencia", JOptionPane.YES_NO_OPTION);
+
+// Check which option the user selected
+        if (choice == JOptionPane.YES_OPTION) {
+            // The user clicked yes
+            // Delete the data here
+            ar.finReserva(Integer.parseInt(jTextField1.getText()));
+
+        } else {
+            // The user clicked no or closed the dialog
+            // Do nothing or something else
+            System.out.println("Nada fue eliminado. tenga un buen dia.");
+        }
+
 
     }//GEN-LAST:event_JBFinalizarActionPerformed
 

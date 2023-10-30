@@ -152,7 +152,8 @@ public class CalcularMontoFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
         double importe = ar.calcularEstadia(ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())), Integer.parseInt(jTextField1.getText()));
-        JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias:" + importe+ "; Por dia:"+ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
+        JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias:" + importe
+                +"\nPor dia:"+ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

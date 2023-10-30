@@ -45,6 +45,8 @@ public class BuscaReservaPorFechaEntrada extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+
         jLabel1.setText("BUSCA RESERVA POR FECHA DE ENTRADA");
 
         jLabel2.setText("FechaEntrada");

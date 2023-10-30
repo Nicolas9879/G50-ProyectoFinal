@@ -47,6 +47,8 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+
         jLabel1.setText("BUSCA RESERVAS POR DNI");
 
         jLabel2.setText("DNI HUESPED");

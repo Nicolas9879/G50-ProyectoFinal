@@ -59,7 +59,7 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("TIPO DE HABITACION");
 
-        JCTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suite Lujo", "Doble", "Triple", "Estandar simple" }));
+        JCTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suite Lujo", "Estandar Doble", "Estandar Triple", "Estandar simple" }));
         JCTipoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCTipoHabActionPerformed(evt);
