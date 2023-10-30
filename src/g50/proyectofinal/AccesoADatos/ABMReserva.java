@@ -159,7 +159,7 @@ public class ABMReserva {
         return habarray;
     }
 
-    public ArrayList<Habitacion> CrearReserva(int codigo) {
+    public ArrayList<Habitacion> CrearReserva(int codigo) {   // pRIMER METODO provee de una lista de habitaciones que cumplen lo pedido n de personas
         ArrayList<Habitacion> habarray = new ArrayList();
         ABMReserva ab = new ABMReserva();
         String sql = "SELECT numero, estado, piso FROM habitaciones WHERE codigo=? AND estado=0";
@@ -175,7 +175,7 @@ public class ABMReserva {
                 hab.setTipo(((ab.codigoHabitacion(codigo)).getTipohabitacion()));
                 hab.setCodigo(codigo);
                 habarray.add(hab);
-                System.out.println(hab);
+           
             }
 
         } // EL PRIMER METODO DEVUELVE UNA TABLA CON LAS HABITACIONES QUE CUMPLEN LOS REQUISITOS
