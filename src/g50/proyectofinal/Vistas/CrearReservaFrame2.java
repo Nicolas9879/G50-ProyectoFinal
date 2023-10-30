@@ -34,7 +34,7 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        JBAceptar = new javax.swing.JButton();
+        JBCrearReserva = new javax.swing.JButton();
         jTNombre = new javax.swing.JTextField();
         jTDomicilio = new javax.swing.JTextField();
         jTDNI = new javax.swing.JTextField();
@@ -71,10 +71,10 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Datos Del Huesped");
 
-        JBAceptar.setText("Crear Reserva");
-        JBAceptar.addActionListener(new java.awt.event.ActionListener() {
+        JBCrearReserva.setText("Crear Reserva");
+        JBCrearReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBAceptarActionPerformed(evt);
+                JBCrearReservaActionPerformed(evt);
             }
         });
 
@@ -123,7 +123,7 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
                             .addComponent(jDateSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(JBAceptar)))))
+                                .addComponent(JBCrearReserva)))))
                 .addGap(0, 45, Short.MAX_VALUE))
         );
 
@@ -162,7 +162,7 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addComponent(jDateSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBAceptar)
+                .addComponent(JBCrearReserva)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -182,7 +182,7 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
+    private void JBCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCrearReservaActionPerformed
         // TODO add your handling code here:
         ABMReserva ar=new ABMReserva();
         
@@ -195,15 +195,15 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
 
     // Convert java.util.Date to java.sql.Date
     java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
-    
+    // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
       CrearReservaFrame reserva1=new CrearReservaFrame();
    
         ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(),    reserva1.getNumerohabi(),  reserva1.getPiso(),    reserva1.getPersonas(), sqlSalida, sqlEntrada);
-    }//GEN-LAST:event_JBAceptarActionPerformed
+    }//GEN-LAST:event_JBCrearReservaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBAceptar;
+    private javax.swing.JButton JBCrearReserva;
     private com.toedter.calendar.JDateChooser jDateEntrada;
     private com.toedter.calendar.JDateChooser jDateSalida;
     private javax.swing.JLabel jLabel1;
