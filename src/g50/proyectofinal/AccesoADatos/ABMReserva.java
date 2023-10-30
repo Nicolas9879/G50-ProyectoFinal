@@ -58,7 +58,7 @@ public class ABMReserva {
         con = Conexion.getConexion();
     }
 
-    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal, int piso,int dni,int numerohab) {
+    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal, int piso, int dni, int numerohab) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
         this.cantidadpersonas = cantidadpersonas;
@@ -262,7 +262,7 @@ public class ABMReserva {
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                ABMReserva reserva=new ABMReserva();
+                ABMReserva reserva = new ABMReserva();
                 reserva.setCantidadpersonas(rs.getInt("personas"));
                 reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
                 reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
@@ -270,7 +270,7 @@ public class ABMReserva {
                 reserva.setImportetotal(rs.getInt("importe_total"));
                 reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
                 reserva.setDni(rs.getInt("dni"));
-                reserva.setNumerohab("numero");
+                reserva.setNumerohab(rs.getInt("numero"));
                 arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
@@ -279,26 +279,30 @@ public class ABMReserva {
         return arrayReservas;
     }
 
-    public ABMReserva buscaReserva(Date fecha_entrada) {
-        ABMReserva reserva = new ABMReserva();
+    public ArrayList<ABMReserva> buscaReserva(Date fecha_entrada) {
 
+        ArrayList<ABMReserva> arrayReservas = new ArrayList();
         String sql = "SELECT * FROM reserva WHERE fecha_entrada=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setDate(1, fecha_entrada);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                ABMReserva reserva = new ABMReserva();
                 reserva.setCantidadpersonas(rs.getInt("personas"));
                 reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
                 reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
-                reserva.setHuesped(huesped);
+                reserva.setPiso(rs.getInt(piso));
                 reserva.setImportetotal(rs.getInt("importe_total"));
                 reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+                reserva.setDni(rs.getInt("dni"));
+                reserva.setNumerohab(rs.getInt("numero"));
+                arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
-        return reserva;
+        return arrayReservas;
     }
 
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).

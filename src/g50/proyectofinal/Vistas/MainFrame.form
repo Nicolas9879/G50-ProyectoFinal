@@ -50,10 +50,18 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMBuscaReserva">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Busca Reservas"/>
+                <Property name="text" type="java.lang.String" value="Busca Reservas por DNI"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMBuscaReservaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMBuscaReservaFechaEntrada">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Busca Reservas por fecha de Entrada"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMBuscaReservaFechaEntradaActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMFinalizarReserva">

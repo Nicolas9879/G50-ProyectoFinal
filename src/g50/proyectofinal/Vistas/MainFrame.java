@@ -38,6 +38,7 @@ public class MainFrame extends javax.swing.JFrame {
         JMCalcularMontoEstadia = new javax.swing.JMenuItem();
         JMCrearReserva = new javax.swing.JMenuItem();
         JMBuscaReserva = new javax.swing.JMenuItem();
+        JMBuscaReservaFechaEntrada = new javax.swing.JMenuItem();
         JMFinalizarReserva = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         JMInformeHuespedExtra = new javax.swing.JMenuItem();
@@ -106,13 +107,21 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu2.add(JMCrearReserva);
 
-        JMBuscaReserva.setText("Busca Reservas");
+        JMBuscaReserva.setText("Busca Reservas por DNI");
         JMBuscaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMBuscaReservaActionPerformed(evt);
             }
         });
         jMenu2.add(JMBuscaReserva);
+
+        JMBuscaReservaFechaEntrada.setText("Busca Reservas por fecha de Entrada");
+        JMBuscaReservaFechaEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMBuscaReservaFechaEntradaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(JMBuscaReservaFechaEntrada);
 
         JMFinalizarReserva.setText("Finalizar Reserva");
         JMFinalizarReserva.addActionListener(new java.awt.event.ActionListener() {
@@ -173,12 +182,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-   public JDesktopPane getDesktopPane() {
+    public JDesktopPane getDesktopPane() {
         return jDesktopPane1;
     }
-    
-    
-    
+
+
     private void JMenuCambiarPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuCambiarPreciosActionPerformed
         // TODO add your handling code here:
         CambiarPreciosHabFrame cambiar = new CambiarPreciosHabFrame();
@@ -209,10 +217,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void JMBuscaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMBuscaReservaActionPerformed
         // TODO add your handling code here:
-        BusquedaReservasFrame cambiar = new BusquedaReservasFrame();
+        BuscaReservaPorDNI cambiar = new BuscaReservaPorDNI();
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMBuscaReservaActionPerformed
+
 
     private void JMFinalizarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMFinalizarReservaActionPerformed
         // TODO add your handling code here:
@@ -223,10 +232,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void JMInformeHuespedExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMInformeHuespedExtraActionPerformed
         // TODO add your handling code here:
-          InformeHuespedesFrame cambiar = new InformeHuespedesFrame();
+        InformeHuespedesFrame cambiar = new InformeHuespedesFrame();
         jDesktopPane1.add(cambiar);
         cambiar.setVisible(true);
     }//GEN-LAST:event_JMInformeHuespedExtraActionPerformed
+
+    private void JMBuscaReservaFechaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMBuscaReservaFechaEntradaActionPerformed
+        // TODO add your handling code here:
+        BuscaReservaPorFechaEntrada cambiar = new BuscaReservaPorFechaEntrada();
+        jDesktopPane1.add(cambiar);
+        cambiar.setVisible(true);
+    }//GEN-LAST:event_JMBuscaReservaFechaEntradaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +282,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMAcercaDe;
     private javax.swing.JMenuItem JMBuscaReserva;
+    private javax.swing.JMenuItem JMBuscaReservaFechaEntrada;
     private javax.swing.JMenuItem JMCalcularMontoEstadia;
     private javax.swing.JMenuItem JMConsultarHabitaciones;
     private javax.swing.JMenuItem JMCrearReserva;

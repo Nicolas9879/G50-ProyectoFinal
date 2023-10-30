@@ -4,6 +4,10 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.AccesoADatos.ABMReserva;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author whatu
@@ -15,7 +19,7 @@ public class BuscaReservaPorFechaEntrada extends javax.swing.JInternalFrame {
      */
     public BuscaReservaPorFechaEntrada() {
         initComponents();
-                this.setTitle("Buscador de reservas por Fecha de Entrada");
+        this.setTitle("Buscador de reservas por Fecha de Entrada");
     }
 
     /**
@@ -45,6 +49,11 @@ public class BuscaReservaPorFechaEntrada extends javax.swing.JInternalFrame {
         jLabel2.setText("FechaEntrada");
 
         jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,6 +116,37 @@ public class BuscaReservaPorFechaEntrada extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void llenarTabla(int dni) {
+        //CARGA LA TABLA!!!!
+        ABMReserva ar = new ABMReserva();
+        ArrayList<ABMReserva> reservas = ar.buscaReserva(dni);
+        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.addColumn("DNI");
+        model.addColumn("Personas");
+        model.addColumn("Nº Habitacion");
+        model.addColumn("Piso");
+        model.addColumn("FechaEntrada");
+        model.addColumn("FechaSalida");
+        model.addColumn("Monto a Pagar");
+
+        if (reservas != null) {
+            for (ABMReserva browser : reservas) { //
+
+                model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), browser.getPiso(), browser.getFechaentrada(), browser.getFechasalida(), browser.getImportetotal()});
+
+            }
+
+        }
+        jTable1.setModel(model);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
