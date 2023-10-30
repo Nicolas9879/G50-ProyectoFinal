@@ -140,10 +140,10 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         model.addColumn("FechaEntrada");
         model.addColumn("FechaSalida");
         model.addColumn("Monto a Pagar");
-
+        
         if (reservas != null) {
             for (ABMReserva browser : reservas) { //
-
+System.out.println(browser.getImportetotal());
                 model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), browser.getPiso(), browser.getFechaentrada(), browser.getFechasalida(), browser.getImportetotal()});
 
             }

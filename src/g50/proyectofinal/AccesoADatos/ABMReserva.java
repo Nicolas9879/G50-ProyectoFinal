@@ -175,7 +175,7 @@ public class ABMReserva {
                 hab.setTipo(((ab.codigoHabitacion(codigo)).getTipohabitacion()));
                 hab.setCodigo(codigo);
                 habarray.add(hab);
-           
+
             }
 
         } // EL PRIMER METODO DEVUELVE UNA TABLA CON LAS HABITACIONES QUE CUMPLEN LOS REQUISITOS
@@ -187,7 +187,14 @@ public class ABMReserva {
 
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int piso, int personas,
             Date fechasalida, Date fechaentrada) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
+        ABMReserva ar = new ABMReserva();
+        TipoDeHabitacion tp = ar.codigoHabitacion(cod);
+// AHORA FALTA CALCULAR LA DIFERENCIA DE DIAS PARA USAR EL METODO CALCULAR ESTADIA
+// UTILIZO CHRONOUNIT para lograrlo.
 
+        int days =  (int) ChronoUnit.DAYS.between(fechaentrada.toLocalDate(),fechasalida.toLocalDate()) ;
+/// AHORA PUEDO INVOCAR EL METODO Y CALCULAR EL MONTO DE LA ESTADIA
+System.out.println("days:"+days);
         String sql = "INSERT INTO huesped (nombre, dni , domicilio, correo, celular) VALUES (?,?,?,?,?)";
 
         try {
@@ -204,12 +211,6 @@ public class ABMReserva {
             JOptionPane.showMessageDialog(null, "ERROR AL CREAR HUESPED");
             ex.printStackTrace();
         }
-        ABMReserva ar = new ABMReserva();
-        TipoDeHabitacion tp = ar.codigoHabitacion(cod);
-// AHORA FALTA CALCULAR LA DIFERENCIA DE DIAS PARA USAR EL METODO CALCULAR ESTADIA
-// UTILIZO CHRONOUNIT para lograrlo.
-        int days = (int) ChronoUnit.DAYS.between(fechasalida.toLocalDate(), fechaentrada.toLocalDate());
-/// AHORA PUEDO INVOCAR EL METODO Y CALCULAR EL MONTO DE LA ESTADIA
 
         String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero,piso) VALUES (?, ?, ?,?,?,?,?)";
         try {
@@ -218,6 +219,7 @@ public class ABMReserva {
             ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
             ps2.setDouble(4, ar.calcularEstadia(tp, days));  //Calculo el costo de la estadia y lo envio
+            System.out.println(ar.calcularEstadia(tp, days));
             ps2.setInt(5, personas);
             ps2.setInt(6, numerohab);
             ps2.setInt(7, piso);
@@ -241,10 +243,40 @@ public class ABMReserva {
 
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
         double a = tip.getPrecioxnoche();
-        return a * dias;
+        return a * (double)dias;
     }
 
     public void finReserva(int dni) {
+        /// Busca el numero de la habitacion reservada
+        int number=0;
+        String sql4 ="SELECT numero FROM reserva WHERE dni=?";
+         try {
+            PreparedStatement ps4 = con.prepareStatement(sql4);
+            ps4.setInt(1, dni);
+            ResultSet rs=ps4.executeQuery();
+            while(rs.next()){
+                number=rs.getInt("numero");
+            }
+            JOptionPane.showMessageDialog(null, "Reserva eliminada con Exito!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+        }
+         
+         
+         //
+         String sql3 = "UPDATE habitaciones  SET estado=? where numero=?";
+        
+        try {
+            PreparedStatement ps3 = con.prepareStatement(sql3);
+            ps3.setBoolean(1, false);
+            ps3.setInt(2, number);
+            ps3.executeUpdate();
+JOptionPane.showMessageDialog(null, "La habitacion "+number+" ha sido liberada.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL LIBERAR HABITACION");
+        }
+        
+         
         String sql = "DELETE FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -259,10 +291,11 @@ public class ABMReserva {
             PreparedStatement ps2 = con.prepareStatement(sql2);
             ps2.setInt(1, dni);
             ps2.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Huesped eliminado con Exito!");
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
         }
+         
     }
 
     public ArrayList<ABMReserva> buscaReserva(int dni) {
@@ -278,15 +311,15 @@ public class ABMReserva {
                 reserva.setCantidadpersonas(rs.getInt("personas"));
                 reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
                 reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
-                reserva.setPiso(rs.getInt(piso));
+                reserva.setPiso(rs.getInt("piso"));
                 reserva.setImportetotal(rs.getInt("importe_total"));
-                reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
                 reserva.setDni(rs.getInt("dni"));
                 reserva.setNumerohab(rs.getInt("numero"));
                 arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
+            ex.printStackTrace();
         }
         return arrayReservas;
     }
@@ -304,11 +337,11 @@ public class ABMReserva {
                 reserva.setCantidadpersonas(rs.getInt("personas"));
                 reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
                 reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
-                reserva.setPiso(rs.getInt(piso));
-                reserva.setImportetotal(rs.getInt("importe_total"));
-                reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+                reserva.setPiso(rs.getInt("piso"));
+                reserva.setImportetotal((int) rs.getDouble("importe_total"));
                 reserva.setDni(rs.getInt("dni"));
                 reserva.setNumerohab(rs.getInt("numero"));
+
                 arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
@@ -340,6 +373,7 @@ public class ABMReserva {
             JOptionPane.showMessageDialog(null, huesped1.toString());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
+            ex.printStackTrace();
         }
     }
     //Un informe de Huespedes por dni como campo de búsqueda.
