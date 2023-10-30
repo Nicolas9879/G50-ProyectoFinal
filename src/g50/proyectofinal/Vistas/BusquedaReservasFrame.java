@@ -157,8 +157,8 @@ public class BusquedaReservasFrame extends javax.swing.JInternalFrame {
         hab = th.habitacionesDisponibles();
 
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Numero");
-        model.addColumn("Piso");
+        model.addColumn("Nombre");
+        model.addColumn("DNI");
         model.addColumn("Tipo");
         model.addColumn("Estado");
 
