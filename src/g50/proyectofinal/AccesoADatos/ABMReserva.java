@@ -220,7 +220,7 @@ public class ABMReserva {
             ps2.setDate(2, fechaentrada);
             ps2.setDate(3, fechasalida);
             ps2.setDouble(4, ar.calcularEstadia(tp, days));  //Calculo el costo de la estadia y lo envio
-        
+
             ps2.setInt(5, personas);
             ps2.setInt(6, numerohab);
             ps2.setInt(7, piso);
@@ -229,11 +229,14 @@ public class ABMReserva {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        String sql3 = "UPDATE  habitaciones  SET estado=? where numero=?";     // MARCA HABITACION COMO OCUPADA
+        String sql3 = "UPDATE habitaciones  SET estado=? where numero=?";     // MARCA HABITACION COMO OCUPADA
         try {
             PreparedStatement ps3 = con.prepareStatement(sql3);
             ps3.setBoolean(1, true);
             ps3.setInt(2, numerohab);
+            ps3.executeUpdate();
+            ps3.close();
+            JOptionPane.showMessageDialog(null, "NºHabitacion: " + numerohab);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR");
         }
@@ -259,8 +262,10 @@ public class ABMReserva {
                 number = rs.getInt("numero");
             }
 
+            ps4.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR NUMERO");
+            ex.printStackTrace();
         }
 
         //
@@ -271,6 +276,7 @@ public class ABMReserva {
             ps3.setBoolean(1, false);
             ps3.setInt(2, number);
             ps3.executeUpdate();
+            ps3.close();
             JOptionPane.showMessageDialog(null, "La habitacion " + number + " ha sido liberada.");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL LIBERAR HABITACION");
@@ -281,6 +287,7 @@ public class ABMReserva {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
             ps.executeUpdate();
+            ps.close();
             JOptionPane.showMessageDialog(null, "Reserva eliminada con Exito!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
@@ -290,9 +297,10 @@ public class ABMReserva {
             PreparedStatement ps2 = con.prepareStatement(sql2);
             ps2.setInt(1, dni);
             ps2.executeUpdate();
+            ps2.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+            JOptionPane.showMessageDialog(null, "ERROR AL ELIMINAR HUESPED");
         }
 
     }
@@ -351,12 +359,11 @@ public class ABMReserva {
 
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
     public void informeHuespedes(int dni) {
-        ABMHuesped huesped1 = null;
-        ArrayList<ABMHuesped> huespeds = new ArrayList();
-        String sql = "SELECT * FROM reserva WHERE dni=?";
+        ABMHuesped huesped1 = new ABMHuesped();
+        String sql = "SELECT  nombre,dni, domicilio, correo, celular  FROM huesped WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, huesped.getDni());
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 huesped1.setCelular(rs.getInt("celular"));
@@ -364,12 +371,13 @@ public class ABMReserva {
                 huesped1.setDni(rs.getInt("dni"));
                 huesped1.setDomicilio(rs.getString("domicilio"));
                 huesped1.setNombre(rs.getString("nombre"));
-                huespeds.add(huesped1);
             }
-            for (ABMHuesped browser : huespeds) {
-                System.out.println(browser); //DEBERIA CONVERTIRLO EN UN JOPTION PANE? // PERO COMO PODRIA CREAR UNA TABLA DE LA NADA?
-            }
-            JOptionPane.showMessageDialog(null, huesped1.toString());
+            JOptionPane.showMessageDialog(null,
+                    "Nombre: " + huesped1.getNombre()
+                    + "\nDNI: " + huesped1.getDni()
+                    + "\nDomicilio: " + huesped1.getDomicilio()
+                    + "\nCorreo: " + huesped1.getCorreo()
+                    + "\nCelular: " + huesped1.getCelular());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
             ex.printStackTrace();

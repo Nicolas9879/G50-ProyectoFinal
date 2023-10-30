@@ -80,36 +80,13 @@ public class ABMHuesped {
         this.celular = celular;
     }
 
-    public ArrayList listaHuespedes() {
 
-        ArrayList<ABMHuesped> huespedes = new ArrayList();
-
-        String sql2 = "SELECT * FROM huesped";
-
-        try {
-            PreparedStatement ps2 = con.prepareStatement(sql2, PreparedStatement.RETURN_GENERATED_KEYS);
-
-            ResultSet rs = ps2.executeQuery();
-            while (rs.next()) {
-                ABMHuesped hu = new ABMHuesped();
-                hu.setDni(rs.getInt("dni"));
-                hu.setNombre(rs.getString("nombre")); 
-                hu.setCelular(rs.getInt("celular"));
-                hu.setCorreo(rs.getString("correo"));
-                hu.setDomicilio(rs.getString("domicilio"));
-                huespedes.add(hu);
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al buscar  habitaciones");
-        }
-        return huespedes;
-    }
 
     @Override
     public String toString() {
-        return nombre + ", " + dni;
-
+        return  "Nombre=" + nombre + ", DNI=" + dni + ", Domicilio=" + domicilio + ", Correo=" + correo + ", Celular=" + celular ;
     }
+
+  
 
 }
