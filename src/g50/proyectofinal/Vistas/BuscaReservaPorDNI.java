@@ -127,8 +127,9 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
  private void llenarTabla(int dni) {
         //CARGA LA TABLA!!!!
         ABMReserva ar=new ABMReserva();
+        ArrayList<ABMReserva> reservas=ar.buscaReserva(dni);
         // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
-        ABMReserva reserva=ar.buscaReserva(dni);
+
 
         DefaultTableModel model = new DefaultTableModel();
         
@@ -140,10 +141,10 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         model.addColumn("FechaSalida");
         model.addColumn("Monto a Pagar");
 
-        if (hab != null) {
-            for (Habitacion browser : hab) { //
+        if (reservas != null) {
+            for (ABMReserva browser : reservas) { //
 
-                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
+                model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), estado2(browser.isEstado())});
 
             }
 

@@ -43,6 +43,8 @@ public class ABMReserva {
 //
 
     private ABMHuesped huesped;
+    private int numerohab;
+    private int dni; // el id de huesped es su dni.
     private TipoDeHabitacion tipohabitacion;
     private int cantidadpersonas;
     private LocalDate fechaentrada;
@@ -56,7 +58,7 @@ public class ABMReserva {
         con = Conexion.getConexion();
     }
 
-    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal, int piso) {
+    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal, int piso,int dni,int numerohab) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
         this.cantidadpersonas = cantidadpersonas;
@@ -72,6 +74,22 @@ public class ABMReserva {
 
     public void setHuesped(ABMHuesped huesped) {
         this.huesped = huesped;
+    }
+
+    public int getNumerohab() {
+        return numerohab;
+    }
+
+    public void setNumerohab(int numerohab) {
+        this.numerohab = numerohab;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 
     public TipoDeHabitacion getTipohabitacion() {
@@ -251,6 +269,8 @@ public class ABMReserva {
                 reserva.setPiso(rs.getInt(piso));
                 reserva.setImportetotal(rs.getInt("importe_total"));
                 reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+                reserva.setDni(rs.getInt("dni"));
+                reserva.setNumerohab("numero");
                 arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
