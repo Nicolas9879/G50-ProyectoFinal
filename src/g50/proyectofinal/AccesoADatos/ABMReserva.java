@@ -48,6 +48,7 @@ public class ABMReserva {
     private LocalDate fechaentrada;
     private LocalDate fechasalida;
     private int importetotal;
+    private int piso;
     private Connection con = null;
     private int cod;
 
@@ -55,13 +56,14 @@ public class ABMReserva {
         con = Conexion.getConexion();
     }
 
-    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal) {
+    public ABMReserva(ABMHuesped huesped, TipoDeHabitacion tipohabitacion, int cantidadpersonas, LocalDate fechaentrada, LocalDate fechasalida, int importetotal, int piso) {
         this.huesped = huesped;
         this.tipohabitacion = tipohabitacion;
         this.cantidadpersonas = cantidadpersonas;
         this.fechaentrada = fechaentrada;
         this.fechasalida = fechasalida;
         this.importetotal = importetotal;
+        this.piso = piso;
     }
 
     public ABMHuesped getHuesped() {
@@ -78,6 +80,14 @@ public class ABMReserva {
 
     public void setTipohabitacion(TipoDeHabitacion tipohabitacion) {
         this.tipohabitacion = tipohabitacion;
+    }
+
+    public int getPiso() {
+        return piso;
+    }
+
+    public void setPiso(int piso) {
+        this.piso = piso;
     }
 
     public int getCantidadpersonas() {
@@ -182,7 +192,6 @@ public class ABMReserva {
         int days = (int) ChronoUnit.DAYS.between(fechasalida.toLocalDate(), fechaentrada.toLocalDate());
 /// AHORA PUEDO INVOCAR EL METODO Y CALCULAR EL MONTO DE LA ESTADIA
 
-
         String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero) VALUES (?, ?, ?,?,?,?)";
         try {
             PreparedStatement ps2 = con.prepareStatement(sql2);
@@ -226,26 +235,28 @@ public class ABMReserva {
         }
     }
 
-    public ABMReserva buscaReserva(ABMHuesped huesped) {
-        ABMReserva reserva = new ABMReserva();
+    public ArrayList<ABMReserva> buscaReserva(int dni) {
+        ArrayList<ABMReserva> arrayReservas = new ArrayList();
 
         String sql = "SELECT * FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, huesped.getDni());
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                ABMReserva reserva=new ABMReserva();
                 reserva.setCantidadpersonas(rs.getInt("personas"));
                 reserva.setFechaentrada(rs.getDate("fecha_entrada").toLocalDate());
                 reserva.setFechasalida(rs.getDate("fecha_salida").toLocalDate());
-                reserva.setHuesped(huesped);
+                reserva.setPiso(rs.getInt(piso));
                 reserva.setImportetotal(rs.getInt("importe_total"));
                 reserva.setTipohabitacion(codigoHabitacion(rs.getInt("codigo")));
+                arrayReservas.add(reserva);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
         }
-        return reserva;
+        return arrayReservas;
     }
 
     public ABMReserva buscaReserva(Date fecha_entrada) {

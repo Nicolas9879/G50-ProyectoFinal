@@ -4,6 +4,13 @@
  */
 package g50.proyectofinal.Vistas;
 
+import g50.proyectofinal.AccesoADatos.ABMHabitaciones;
+import g50.proyectofinal.AccesoADatos.ABMReserva;
+import g50.proyectofinal.Entidades.Habitacion;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author whatu
@@ -58,6 +65,11 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,7 +120,43 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+ private void llenarTabla(int dni) {
+        //CARGA LA TABLA!!!!
+        ABMReserva ar=new ABMReserva();
+        // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
+        ABMReserva reserva=ar.buscaReserva(dni);
+
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("DNI");
+        model.addColumn("Personas");
+           model.addColumn("Nº Habitacion");
+        model.addColumn("Piso");
+            model.addColumn("FechaEntrada");
+        model.addColumn("FechaSalida");
+        model.addColumn("Monto a Pagar");
+
+        if (hab != null) {
+            for (Habitacion browser : hab) { //
+
+                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
+
+            }
+
+        }
+        JTableHotel.setModel(model);
+    }
+
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -44,8 +44,6 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
-
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("FINALIZADOR DE RESERVAS");
 
