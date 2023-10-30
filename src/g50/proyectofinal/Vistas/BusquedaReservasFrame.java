@@ -159,7 +159,7 @@ public class BusquedaReservasFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Nombre");
         model.addColumn("DNI");
-        model.addColumn("Tipo");
+        model.addColumn("Piso");
         model.addColumn("Estado");
 
         if (hab != null) {
