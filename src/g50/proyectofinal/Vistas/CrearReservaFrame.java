@@ -23,6 +23,16 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private int numerohabi;
     private int piso;
 
+    public int getPersonas() {
+        return personas;
+    }
+
+    public int getNumerohabi() {
+        return numerohabi;
+    }
+    public int getPiso() {
+        return piso;
+    }
     /**
      * Creates new form ReservasFrame
      */
