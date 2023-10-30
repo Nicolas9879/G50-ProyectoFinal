@@ -18,8 +18,10 @@ import javax.swing.table.DefaultTableModel;
  * @author whatu
  */
 public class CrearReservaFrame extends javax.swing.JInternalFrame {
+
     private int personas;
     private int numerohabi;
+    private int piso;
 
     /**
      * Creates new form ReservasFrame
@@ -166,14 +168,31 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private void JBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActionPerformed
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
-
+        personas = Integer.parseInt(jTextField1.getText());
         llenarTabla();
+
     }//GEN-LAST:event_JBBuscarActionPerformed
 
     private void JBAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAceptarActionPerformed
         // TODO add your handling code here:
+
+        // Get the selected row index
+        int row = jTable2.getSelectedRow();
+
+// Check if a row is selected
+        if (row != -1) {
+            // Get the data from column 0 of the selected row
+            Object data = jTable2.getModel().getValueAt(row, 0);
+            Object data2 = jTable2.getModel().getValueAt(row, 1);
+            // Do something with the data
+            numerohabi = (int) data;
+            piso = (int) data2;
+            System.out.println("piso" + piso);
+            System.out.println("numerohabi" + numerohabi);
+        }
+
         if (jTable2.getSelectedRow() != -1) {
-            
+
             CrearReservaFrame2 frame2 = new CrearReservaFrame2();
             JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
             desktopPane.add(frame2);
@@ -193,20 +212,24 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Numero");
         model.addColumn("Piso");
+
+        model.addColumn("Codigo");
         model.addColumn("Tipo");
         model.addColumn("Estado");
 
         if (habarray != null) {
             for (Habitacion browser : habarray) { //
 
-                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getTipo(), estado2(browser.isEstado())});
+                model.addRow(new Object[]{browser.getNumero(), browser.getPiso(), browser.getCodigo(), browser.getTipo(), estado2(browser.isEstado())});
 
             }
 
         }
         jTable2.setModel(model);
     }
+/////////////////////// SELECCIONAR EL ITEM DE LA TABLA PARA OBTENER EL NUMERO DE HABITACION DE LA TABLA DE OPCIONES ELEGIDAS
 
+/////////////////////// SELECCIONAR EL ITEM DE LA TABLA PARA OBTENER EL NUMERO DE HABITACION DE LA TABLA DE OPCIONES ELEGIDAS
     private String estado2(boolean state) {  // Cambia los booleans de false por libre y true por ocupado
         String str;
         if (state == false) {
