@@ -16,16 +16,17 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
     int piso1;
     int personas1;
     int numero;
-
+int code;
     /**
      * Creates new form ReservasFrame
      */
-    public CrearReservaFrame2(int piso, int personas, int numerohab) {
+    public CrearReservaFrame2(int piso, int personas, int numerohab,int code) {
         initComponents();
         this.setTitle("Crear Reserva");
         this.piso1 = piso;
         this.personas1 = personas;
         this.numero = numerohab;
+        this.code=code;
     }
 
     /**
@@ -204,7 +205,7 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
         // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
 
-        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero, piso1, personas1, sqlSalida, sqlEntrada);
+        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero, piso1, personas1,code, sqlSalida, sqlEntrada);
         this.dispose();
     }//GEN-LAST:event_JBCrearReservaActionPerformed
 

@@ -22,6 +22,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private int personas1;
     private int numerohabi;
     private int piso1;
+    private int codu;
 // HAY UN BUG? SI VOS USAS EL MISMO NOMBRE PARA EL PARAMETRO Y LA VARIABLE SE BUGEA Y APARECE NULL?
 
     /**
@@ -187,13 +188,15 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
             numerohabi = (int) data;
             Object data2 = jTable2.getModel().getValueAt(row, 2);
             piso1 = (int) data2;
+            Object data3 = jTable2.getModel().getValueAt(row, 3);
+            codu = (int) data2;
             // Do something with the data
 
         }
 
         if (jTable2.getSelectedRow() != -1) {
 
-            CrearReservaFrame2 frame2 = new CrearReservaFrame2(piso1, personas1, numerohabi);
+            CrearReservaFrame2 frame2 = new CrearReservaFrame2(piso1, personas1, numerohabi, codu);
             JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
             desktopPane.add(frame2);
             frame2.setVisible(true);
