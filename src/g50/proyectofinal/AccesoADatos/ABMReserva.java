@@ -176,6 +176,9 @@ public class ABMReserva {
         }
 ABMReserva ar=new ABMReserva();
 TipoDeHabitacion tp=ar.codigoHabitacion(cod);
+// AHORA FALTA CALCULAR LA DIFERENCIA DE DIAS PARA USAR EL METODO CALCULAR ESTADIA
+
+
 
         String sql2 = "INSERT INTO reserva (dni, fecha_entrada, fecha_salida, importe_total, personas,numero) VALUES (?, ?, ?,?,?,?)";
         try {
