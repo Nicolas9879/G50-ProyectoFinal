@@ -19,10 +19,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CrearReservaFrame extends javax.swing.JInternalFrame {
 
-    private int personas;
+    private int personas1;
     private int numerohabi;
-    private int piso;
-
+    private int piso1;
+// HAY UN BUG? SI VOS USAS EL MISMO NOMBRE PARA EL PARAMETRO Y LA VARIABLE SE BUGEA Y APARECE NULL?
     /**
      * Creates new form ReservasFrame
      */
@@ -168,7 +168,7 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private void JBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActionPerformed
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
-        personas = Integer.parseInt(jTextField1.getText());
+        personas1 = Integer.parseInt(jTextField1.getText());
         llenarTabla();
 
     }//GEN-LAST:event_JBBuscarActionPerformed
@@ -186,13 +186,14 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
             Object data2 = jTable2.getModel().getValueAt(row, 1);
             // Do something with the data
             numerohabi = (int) data;
-            piso = (int) data2;
+            piso1 = (int) data2;
+        
 
         }
 
         if (jTable2.getSelectedRow() != -1) {
 
-            CrearReservaFrame2 frame2 = new CrearReservaFrame2(piso, personas, numerohabi);
+            CrearReservaFrame2 frame2 = new CrearReservaFrame2(piso1, personas1, numerohabi);
             JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
             desktopPane.add(frame2);
             frame2.setVisible(true);
