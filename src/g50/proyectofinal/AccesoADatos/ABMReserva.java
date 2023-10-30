@@ -188,7 +188,7 @@ public class ABMReserva {
     public void crearReserva2(String nombre, int dni, String domi, String correo, String celular, int numerohab, int piso, int personas,
             Date fechasalida, Date fechaentrada) {  //DEBE CAMBIAR EL ESTADO DE LA HABITACION...A  PARTIR DE SU NUMERO.. ADEMAS DE CREAR LA RESERVA Y NO SOLO DEVOLVER UN ARRAY.. SERIA LA 2DA PARTE DEL M
 
-        String sql = "INSERT INTO huesped (nombre, dni , domicilio, correo, celular,piso) VALUES (?.?.?.?.?,?)";
+        String sql = "INSERT INTO huesped (nombre, dni , domicilio, correo, celular) VALUES (?,?,?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -197,11 +197,12 @@ public class ABMReserva {
             ps.setString(3, domi);
             ps.setString(4, correo);
             ps.setString(5, celular);
-            ps.setInt(6, piso);
+
             ps.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR AL CREAR HUESPED");
+            ex.printStackTrace();
         }
         ABMReserva ar = new ABMReserva();
         TipoDeHabitacion tp = ar.codigoHabitacion(cod);
@@ -234,7 +235,7 @@ public class ABMReserva {
         }
 
         //La Habitación se marca Ocupada(1), en la fecha de salida vuelve a su estado Libre.
-// ES NECESARIO USAR QUARTZ... LO CUAL NO ES ENSEÑADO EN LA CURSADA... DEBO PRACTICARLO Y VOLVER A TERMINAR EL METODO
+// ES NECESARIO USAR QUARTZ... LO CUAL NO ES ENSEÑADO EN LA CURSADA... y no tengo idea de como usarlo. por ahora se finaliza la reserva con el metodo ese y ya.
     }
 
     public double calcularEstadia(TipoDeHabitacion tip, int dias) {
@@ -242,12 +243,22 @@ public class ABMReserva {
         return a * dias;
     }
 
-    public void finReserva(ABMHuesped huesped) {
+    public void finReserva(int dni) {
         String sql = "DELETE FROM reserva WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, huesped.getDni());
+            ps.setInt(1, dni);
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Reserva eliminada con Exito!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
+        }
+        String sql2 = "DELETE FROM huesped WHERE dni=?";
+        try {
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            ps2.setInt(1, dni);
+            ps2.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Huesped eliminado con Exito!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL FINALIZAR RESERVA");
         }
@@ -306,33 +317,6 @@ public class ABMReserva {
     }
 
     // Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada).
-    public void mostrarHabitacion(TipoDeHabitacion tip) {
-
-        ArrayList<Habitacion> habs = new ArrayList();
-
-        String sql = "SELECT * FROM habitaciones WHERE codigo=?";
-
-        try {
-            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, tip.getCodigo()); // revisa el codigo...asociado al tipo de habitacion
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Habitacion hab = null;
-                hab.setNumero(rs.getInt("numero"));
-                hab.setCodigo(rs.getInt("codigo"));
-                hab.setEstado(rs.getBoolean("estado"));
-                habs.add(hab);
-            }
-
-            for (Habitacion browser : habs) {
-                System.out.println(browser);
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR RESERVA");
-        }
-    }
-
     public void informeHuespedes(int dni) {
         ABMHuesped huesped1 = null;
         ArrayList<ABMHuesped> huespeds = new ArrayList();

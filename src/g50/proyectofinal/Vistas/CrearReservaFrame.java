@@ -23,16 +23,6 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private int numerohabi;
     private int piso;
 
-    public int getPersonas() {
-        return personas;
-    }
-
-    public int getNumerohabi() {
-        return numerohabi;
-    }
-    public int getPiso() {
-        return piso;
-    }
     /**
      * Creates new form ReservasFrame
      */
@@ -197,13 +187,12 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
             // Do something with the data
             numerohabi = (int) data;
             piso = (int) data2;
-            System.out.println("piso" + piso);
-            System.out.println("numerohabi" + numerohabi);
+
         }
 
         if (jTable2.getSelectedRow() != -1) {
 
-            CrearReservaFrame2 frame2 = new CrearReservaFrame2();
+            CrearReservaFrame2 frame2 = new CrearReservaFrame2(piso, personas, numerohabi);
             JDesktopPane desktopPane = (JDesktopPane) getParent(); // Get the parent JDesktopPane
             desktopPane.add(frame2);
             frame2.setVisible(true);

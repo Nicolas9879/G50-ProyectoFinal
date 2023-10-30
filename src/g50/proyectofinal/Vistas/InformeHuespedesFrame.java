@@ -113,7 +113,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
         ar.informeHuespedes(Integer.parseInt(JTDni.getText()));
-        System.out.println("ALELUYA");
+    
     }//GEN-LAST:event_JBBuscaHuespedesActionPerformed
 
 

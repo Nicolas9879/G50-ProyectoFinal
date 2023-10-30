@@ -72,7 +72,7 @@ public class ABMHabitaciones {
                 tb = ar.codigoHabitacion(rs.getInt("codigo"));
                 hab.setTipo(tb.getTipohabitacion());
                 habarray.add(hab);
-                System.out.println(hab);
+          
 
             }
 

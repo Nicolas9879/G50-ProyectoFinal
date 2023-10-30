@@ -13,12 +13,19 @@ import java.util.Date;
  */
 public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
 
+    int piso1;
+    int personas1;
+    int numero;
+
     /**
      * Creates new form ReservasFrame
      */
-    public CrearReservaFrame2() {
+    public CrearReservaFrame2(int piso, int personas, int numerohab) {
         initComponents();
         this.setTitle("Crear Reserva");
+        this.piso1 = piso;
+        this.personas1 = personas;
+        this.numero = numerohab;
     }
 
     /**
@@ -184,21 +191,21 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
 
     private void JBCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCrearReservaActionPerformed
         // TODO add your handling code here:
-        ABMReserva ar=new ABMReserva();
-        
+        ABMReserva ar = new ABMReserva();
+
         Date utilDate = jDateSalida.getDate();
 
-    // Convert java.util.Date to java.sql.Date
-    java.sql.Date sqlSalida = new java.sql.Date(utilDate.getTime());
-    
-       Date utilDate2 = jDateEntrada.getDate();
+        // Convert java.util.Date to java.sql.Date
+        java.sql.Date sqlSalida = new java.sql.Date(utilDate.getTime());
 
-    // Convert java.util.Date to java.sql.Date
-    java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
-    // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
-      CrearReservaFrame reserva1=new CrearReservaFrame();
-   
-        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(),    reserva1.getNumerohabi(),  reserva1.getPiso(),    reserva1.getPersonas(), sqlSalida, sqlEntrada);
+        Date utilDate2 = jDateEntrada.getDate();
+
+        // Convert java.util.Date to java.sql.Date
+        java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
+        // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
+        CrearReservaFrame reserva1 = new CrearReservaFrame();
+
+        ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero,piso1,personas1, sqlSalida, sqlEntrada);
     }//GEN-LAST:event_JBCrearReservaActionPerformed
 
 
