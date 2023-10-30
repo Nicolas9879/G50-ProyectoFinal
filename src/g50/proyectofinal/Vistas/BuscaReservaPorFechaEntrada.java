@@ -15,6 +15,7 @@ public class BuscaReservaPorFechaEntrada extends javax.swing.JInternalFrame {
      */
     public BuscaReservaPorFechaEntrada() {
         initComponents();
+                this.setTitle("Buscador de reservas por Fecha de Entrada");
     }
 
     /**

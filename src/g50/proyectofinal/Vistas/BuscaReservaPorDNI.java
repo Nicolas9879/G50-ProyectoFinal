@@ -15,6 +15,7 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
      */
     public BuscaReservaPorDNI() {
         initComponents();
+                this.setTitle("Buscador de reservas por DNI");
     }
 
     /**
