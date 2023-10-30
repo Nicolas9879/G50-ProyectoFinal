@@ -161,7 +161,7 @@ public class BusquedaReservasFrame extends javax.swing.JInternalFrame {
         model.addColumn("DNI");
            model.addColumn("Nº Habitacion");
         model.addColumn("Piso");
-        model.addColumn("Fecha de Salida");
+        model.addColumn("FechaSalida");
 
         if (hab != null) {
             for (Habitacion browser : hab) { //

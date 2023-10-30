@@ -248,13 +248,13 @@ public class ABMReserva {
         return reserva;
     }
 
-    public ABMReserva buscaReserva(LocalDate fecha_entrada) {
+    public ABMReserva buscaReserva(Date fecha_entrada) {
         ABMReserva reserva = new ABMReserva();
 
-        String sql = "SELECT * FROM reserva WHERE dni=?";
+        String sql = "SELECT * FROM reserva WHERE fecha_entrada=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, huesped.getDni());
+            ps.setDate(1, fecha_entrada);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 reserva.setCantidadpersonas(rs.getInt("personas"));
