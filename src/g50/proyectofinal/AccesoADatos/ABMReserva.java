@@ -413,28 +413,26 @@ public class ABMReserva {
 //        
 //    }
 
-    public boolean buscaLetras(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
+    public boolean VerificadorNumeros(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
 
         for (int i = 0; i < txt.length(); i++) {
             char lector = txt.charAt(i);
-            if (Character.isLetter(lector)) {
-                return true;
+            if (lector < '0' || lector > '9') {
+                return false;  // FALSO si  lector es menor que 0 o mayor que 9
             }
         }
-
-        return false;
+        return true;
     }
 
-    public boolean buscaNumeros(String txt) {  //Si hay algun numero en donde solo deberia haber letras el programa returna true 
+    public boolean VerificadorLetras(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
 
         for (int i = 0; i < txt.length(); i++) {
             char lector = txt.charAt(i);
             if (!Character.isLetter(lector)) {
-                return true; // If any character is not a letter, the method returns false.
+                return false; // If any character is not a letter, the method returns false.
             }
         }
+        return true; // If all characters are letters, it returns true.
 
-     return false;
     }
-
 }

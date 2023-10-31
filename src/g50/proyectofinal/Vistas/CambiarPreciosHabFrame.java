@@ -142,21 +142,18 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
 
     private void JBCambiarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCambiarPrecioActionPerformed
         // TODO add your handling code here:
-        JTPrecio.getText();
+
         ABMReserva ar = new ABMReserva();
 
-        if (JTPrecio.getText().isBlank()) {   // IS EMPTY TE TOMA LOS ESPACIOS VACIOS. SOLO PRESENTE EN JAVA 11
-            JOptionPane.showMessageDialog(null, "Porfavor, llene los campos");
+        if (ar.VerificadorNumeros(JTPrecio.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "SOLO NUMEROS!");
         } else {
-            if (ar.buscaLetras(JTPrecio.getText()) == true) {
-                JOptionPane.showMessageDialog(null, "No pongas letras, SOLO NUMEROS!");
-            } else {
-                TipoDeHabitacion td = new TipoDeHabitacion();
-                String tipoHab = JCTipoHab.getSelectedItem().toString();
+            TipoDeHabitacion td = new TipoDeHabitacion();
+            String tipoHab = JCTipoHab.getSelectedItem().toString();
 
-                td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
-            }
+            td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
         }
+
     }//GEN-LAST:event_JBCambiarPrecioActionPerformed
 
     private void JTPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTPrecioKeyTyped

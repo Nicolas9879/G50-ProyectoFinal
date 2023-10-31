@@ -11,12 +11,9 @@ import java.util.Random;
 public class G50ProyectoFinal {
 
     public static void main(String[] args) {
-       
-        ABMReserva ar= new ABMReserva();
-        System.out.println(ar.buscaNumeros("ANALAURA1"));
-           System.out.println(ar.buscaNumeros("ANALAURA"));
-        }
+
     }
+}
 //SET FOREIGN_KEY_CHECKS = 0;
 
 
