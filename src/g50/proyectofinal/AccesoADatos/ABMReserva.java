@@ -413,26 +413,55 @@ public class ABMReserva {
 //        
 //    }
 
-    public boolean VerificadorNumeros(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
-
-        for (int i = 0; i < txt.length(); i++) {
-            char lector = txt.charAt(i);
-            if (lector < '0' || lector > '9') {
-                return false;  // FALSO si  lector es menor que 0 o mayor que 9
+    public boolean verificadorNumeros(String txt) {// VERIFICA QUE TODO LO INGRESADO SON NUMEROS..si hay algun espacio...al inicio o al final no lo ignorara
+        if (txt.isBlank()) {
+            return false;
+        } else {
+            for (int i = 0; i < txt.length(); i++) {
+                char lector = txt.charAt(i);
+                if (Character.isDigit(lector) || lector == ' ') {
+                    // LOS DEJA PASAR SI ES UN DIGITO O UN ESPACIO
+                } else {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
     }
 
-    public boolean VerificadorLetras(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
-
-        for (int i = 0; i < txt.length(); i++) {
-            char lector = txt.charAt(i);
-            if (!Character.isLetter(lector)) {
-                return false; // If any character is not a letter, the method returns false.
+    public boolean verificadorLetras(String txt) {//  VERIFICA QUE TODO LO INGRESADO SON LETRAS..si hay algun espacio...al inicio o al final no lo ignorara
+        if (txt.isBlank()) {    //SE ASEGURA DE QUE NO ESTE TODO EN BLANCO
+            return false;
+        } else {
+            for (int i = 0; i < txt.length(); i++) {
+                char lector = txt.charAt(i);
+                if (Character.isLetter(lector) || lector == ' ') {
+                    // LOS DEJA PASAR A ESTOS DOS
+                } else {
+                    return false;
+                }
             }
-        }
-        return true; // If all characters are letters, it returns true.
+            return true;
 
+        }
     }
+
+    public boolean verificadorDomicilio(String txt) {//  VERIFICA QUE TODO LO INGRESADO  NO TIENE SIMBOLOS..si hay algun espacio...al inicio o al final no lo ignorara
+        if (txt.isBlank()) {    //SE ASEGURA DE QUE NO ESTE TODO EN BLANCO
+            return false;
+        } else {
+            for (int i = 0; i < txt.length(); i++) {
+                char lector = txt.charAt(i);
+                if ((Character.isLetter(lector)) || (lector == ' ') || (Character.isDigit(lector))) {
+// NO LOS DEJA PASAR SI NO SON ALGUNO DE LOS 3
+                } else {
+                    return false;
+                }
+
+            }
+            return true;
+
+        }
+    }
+
 }

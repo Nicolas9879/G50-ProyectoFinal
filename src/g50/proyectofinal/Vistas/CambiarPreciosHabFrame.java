@@ -145,13 +145,15 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
 
         ABMReserva ar = new ABMReserva();
 
-        if (ar.VerificadorNumeros(JTPrecio.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "SOLO NUMEROS!");
+        if (ar.verificadorNumeros(JTPrecio.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            JTPrecio.setText("");
         } else {
             TipoDeHabitacion td = new TipoDeHabitacion();
             String tipoHab = JCTipoHab.getSelectedItem().toString();
 
             td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
+            JTPrecio.setText("");
         }
 
     }//GEN-LAST:event_JBCambiarPrecioActionPerformed

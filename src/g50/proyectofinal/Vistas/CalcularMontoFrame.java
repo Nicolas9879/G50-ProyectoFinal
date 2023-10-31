@@ -150,11 +150,18 @@ public class CalcularMontoFrame extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         ABMReserva ar = new ABMReserva();
-        double importe = ar.calcularEstadia(ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())), Integer.parseInt(jTextField1.getText()));
-        JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias:" + importe
-                +"\nPor dia:"+ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
-        
+        if (ar.verificadorNumeros(jTextField1.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            jTextField1.setText("");
+        } else {
+
+            double importe = ar.calcularEstadia(ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())), Integer.parseInt(jTextField1.getText()));
+            JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias:" + importe
+                    + "\nPor dia:" + ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
+            jTextField1.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

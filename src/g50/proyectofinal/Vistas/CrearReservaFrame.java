@@ -6,6 +6,7 @@ package g50.proyectofinal.Vistas;
 
 import g50.proyectofinal.AccesoADatos.ABMHabitaciones;
 import g50.proyectofinal.AccesoADatos.ABMReserva;
+import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
 import g50.proyectofinal.Entidades.Habitacion;
 import java.util.ArrayList;
 import java.util.List;
@@ -173,8 +174,15 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
     private void JBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActionPerformed
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
-        personas1 = Integer.parseInt(jTextField1.getText());
-        llenarTabla();
+        if (ar.verificadorNumeros(jTextField1.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            jTextField1.setText("");
+        } else {
+            personas1 = Integer.parseInt(jTextField1.getText());
+            llenarTabla();
+            jTextField1.setText("");
+        }
+
 
     }//GEN-LAST:event_JBBuscarActionPerformed
 
