@@ -5,6 +5,7 @@
 package g50.proyectofinal.Vistas;
 
 import g50.proyectofinal.AccesoADatos.ABMReserva;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
      */
     public InformeHuespedesFrame() {
         initComponents();
-              this.setTitle("Informe huesped");
+        this.setTitle("Informe huesped");
     }
 
     /**
@@ -113,11 +114,13 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
         
-        
-        
-        
-        ar.informeHuespedes(Integer.parseInt(JTDni.getText()));
-    
+        if (ar.verificadorNumeros(JTDni.getText())) {
+            
+            ar.informeHuespedes(Integer.parseInt(JTDni.getText()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros");
+            JTDni.setText("");
+        }
     }//GEN-LAST:event_JBBuscaHuespedesActionPerformed
 
 
