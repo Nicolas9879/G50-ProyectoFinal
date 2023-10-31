@@ -146,7 +146,7 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         ABMReserva ar = new ABMReserva();
 
         if (ar.verificadorNumeros(JTPrecio.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros y sin espacios");
             JTPrecio.setText("");
         } else {
             TipoDeHabitacion td = new TipoDeHabitacion();

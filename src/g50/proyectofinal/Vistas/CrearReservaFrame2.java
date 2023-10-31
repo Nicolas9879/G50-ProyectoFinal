@@ -198,17 +198,6 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
 
-        Date utilDate = jDateSalida.getDate();
-
-        // Convert java.util.Date to java.sql.Date
-        java.sql.Date sqlSalida = new java.sql.Date(utilDate.getTime());
-
-        Date utilDate2 = jDateEntrada.getDate();
-
-        // Convert java.util.Date to java.sql.Date
-        java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
-        // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
-
         boolean nombre, dni, domicilio, correo, celular;
         nombre = ar.verificadorLetras(jTNombre.getText());
         dni = ar.verificadorNumeros(jTDNI.getText());
@@ -216,9 +205,22 @@ public class CrearReservaFrame2 extends javax.swing.JInternalFrame {
         celular = ar.verificadorNumeros(jTCelular.getText());
 
         if (nombre && dni && domicilio && celular) {
-            ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero, piso1, personas1, code, sqlSalida, sqlEntrada);
-            this.dispose();
+            Date utilDate = jDateSalida.getDate();
 
+            // Convert java.util.Date to java.sql.Date
+            java.sql.Date sqlSalida = new java.sql.Date(utilDate.getTime());
+
+            Date utilDate2 = jDateEntrada.getDate();
+
+            // Convert java.util.Date to java.sql.Date
+            java.sql.Date sqlEntrada = new java.sql.Date(utilDate2.getTime());
+            // Esto es para obtener los datos de el primer JInternalFrame solo para eso.
+            if (sqlEntrada.before(sqlSalida)) {
+                ar.crearReserva2(jTNombre.getText(), Integer.parseInt(jTDNI.getText()), jTDomicilio.getText(), jTCorreo.getText(), jTCelular.getText(), numero, piso1, personas1, code, sqlSalida, sqlEntrada);
+                this.dispose();
+            } else{
+                JOptionPane.showMessageDialog(null, "La fecha de salida no puede ser anterior a la de entrada!");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Llene correctamente todos los campos");
 

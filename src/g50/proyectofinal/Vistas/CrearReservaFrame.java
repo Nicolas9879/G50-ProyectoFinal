@@ -175,12 +175,12 @@ public class CrearReservaFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ABMReserva ar = new ABMReserva();
         if (ar.verificadorNumeros(jTextField1.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros y sin espacios");
             jTextField1.setText("");
         } else {
             personas1 = Integer.parseInt(jTextField1.getText());
             llenarTabla();
-            jTextField1.setText("");
+          
         }
 
 

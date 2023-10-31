@@ -118,7 +118,7 @@ public class InformeHuespedesFrame extends javax.swing.JInternalFrame {
             
             ar.informeHuespedes(Integer.parseInt(JTDni.getText()));
         } else {
-            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros");
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros y sin espacios");
             JTDni.setText("");
         }
     }//GEN-LAST:event_JBBuscaHuespedesActionPerformed

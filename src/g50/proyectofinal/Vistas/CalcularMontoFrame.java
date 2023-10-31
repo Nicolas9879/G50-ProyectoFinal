@@ -153,13 +153,13 @@ public class CalcularMontoFrame extends javax.swing.JInternalFrame {
 
         ABMReserva ar = new ABMReserva();
         if (ar.verificadorNumeros(jTextField1.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "Porfavor, solo ingrese numeros");
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros y sin espacios");
             jTextField1.setText("");
         } else {
 
             double importe = ar.calcularEstadia(ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())), Integer.parseInt(jTextField1.getText()));
-            JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias:" + importe
-                    + "\nPor dia:" + ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
+            JOptionPane.showMessageDialog(null, "Monto a pagar por " + jTextField1.getText() + " dias: $" + importe
+                    + "\nPor dia:  $" + ar.codigoHabitacion(Integer.parseInt((String) jComboBox1.getSelectedItem())).getPrecioxnoche());
             jTextField1.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -137,7 +137,7 @@ public class FinReservaFrame extends javax.swing.JInternalFrame {
             }
             
         } else {
-            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros");
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros y sin espacios");
             jTextField1.setText("");
         }
 
