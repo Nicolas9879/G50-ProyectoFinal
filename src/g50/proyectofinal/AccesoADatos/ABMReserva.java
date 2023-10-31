@@ -419,9 +419,8 @@ public class ABMReserva {
         } else {
             for (int i = 0; i < txt.length(); i++) {
                 char lector = txt.charAt(i);
-                if (Character.isDigit(lector) || lector == ' ') {
-                    // LOS DEJA PASAR SI ES UN DIGITO O UN ESPACIO
-                } else {
+                if (!Character.isDigit(lector)) {
+
                     return false;
                 }
             }
