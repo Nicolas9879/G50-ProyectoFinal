@@ -412,4 +412,29 @@ public class ABMReserva {
 //    public ABMReserva buscaReserva(LocalDate fechaentrada) {
 //        
 //    }
+
+    public boolean buscaLetras(String txt) {// SOLO PARA LOS NUMEROS si hay alguna letra entonces el programa  returna true
+
+        for (int i = 0; i < txt.length(); i++) {
+            char lector = txt.charAt(i);
+            if (Character.isLetter(lector)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean buscaNumeros(String txt) {  //Si hay algun numero en donde solo deberia haber letras el programa returna true 
+
+        for (int i = 0; i < txt.length(); i++) {
+            char lector = txt.charAt(i);
+            if (!Character.isLetter(lector)) {
+                return true; // If any character is not a letter, the method returns false.
+            }
+        }
+
+     return false;
+    }
+
 }

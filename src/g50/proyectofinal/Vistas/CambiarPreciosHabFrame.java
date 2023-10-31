@@ -5,7 +5,9 @@
 package g50.proyectofinal.Vistas;
 
 import g50.proyectofinal.*;
+import g50.proyectofinal.AccesoADatos.ABMReserva;
 import g50.proyectofinal.AccesoADatos.TipoDeHabitacion;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +20,7 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
      */
     public CambiarPreciosHabFrame() {
         initComponents();
-              this.setTitle("Cambiar precio de habitaciones");
+        this.setTitle("Cambiar precio de habitaciones");
     }
 
     /**
@@ -67,6 +69,12 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setText("NUEVO PRECIO");
+
+        JTPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTPrecioKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,12 +143,28 @@ public class CambiarPreciosHabFrame extends javax.swing.JInternalFrame {
     private void JBCambiarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCambiarPrecioActionPerformed
         // TODO add your handling code here:
         JTPrecio.getText();
-        TipoDeHabitacion td = new TipoDeHabitacion();
-        String tipoHab = JCTipoHab.getSelectedItem().toString();
-        
-        td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
+        ABMReserva ar = new ABMReserva();
+
+        if (JTPrecio.getText().isBlank()) {   // IS EMPTY TE TOMA LOS ESPACIOS VACIOS. SOLO PRESENTE EN JAVA 11
+            JOptionPane.showMessageDialog(null, "Porfavor, llene los campos");
+        } else {
+            if (ar.buscaLetras(JTPrecio.getText()) == true) {
+                JOptionPane.showMessageDialog(null, "No pongas letras, SOLO NUMEROS!");
+            } else {
+                TipoDeHabitacion td = new TipoDeHabitacion();
+                String tipoHab = JCTipoHab.getSelectedItem().toString();
+
+                td.cambiarPrecio(tipoHab, Double.parseDouble(JTPrecio.getText()));
+            }
+        }
     }//GEN-LAST:event_JBCambiarPrecioActionPerformed
 
+    private void JTPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTPrecioKeyTyped
+
+
+    }//GEN-LAST:event_JTPrecioKeyTyped
+
+    //Metodo que returna  true si hay una letra en dodne deberia haber solo numeros.
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCambiarPrecio;
