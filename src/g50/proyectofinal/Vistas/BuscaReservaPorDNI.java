@@ -9,6 +9,7 @@ import g50.proyectofinal.AccesoADatos.ABMReserva;
 import g50.proyectofinal.Entidades.Habitacion;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -124,9 +125,16 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        llenarTabla(Integer.parseInt(jTextField1.getText()));
-    }//GEN-LAST:event_jButton1ActionPerformed
 
+        ABMReserva ar = new ABMReserva();
+        if (ar.verificadorNumeros(jTextField1.getText())) {
+            llenarTabla(Integer.parseInt(jTextField1.getText()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Porfavor, ingrese solo numeros");
+            jTextField1.setText("");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
     private void llenarTabla(int dni) {
         //CARGA LA TABLA!!!!
         ABMReserva ar = new ABMReserva();
@@ -134,7 +142,7 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         // LLENA LA LIST MATERIA CON LA LISTA ADECUADA DEPENDIENDO DE CUAL BOTON APARECE MARCADO. NO PUEDE MOSTRAR LOS DOS A LA VEZ!!! SE DESELECCIONAN CON OTRO METODOif (jRadioButton1_Inscripta.isSelected() == true) {
 
         DefaultTableModel model = new DefaultTableModel();
-
+        
         model.addColumn("DNI");
         model.addColumn("Personas");
         model.addColumn("Nº Habitacion");
@@ -145,11 +153,11 @@ public class BuscaReservaPorDNI extends javax.swing.JInternalFrame {
         
         if (reservas != null) {
             for (ABMReserva browser : reservas) { //
-System.out.println(browser.getImportetotal());
+                System.out.println(browser.getImportetotal());
                 model.addRow(new Object[]{browser.getDni(), browser.getCantidadpersonas(), browser.getNumerohab(), browser.getPiso(), browser.getFechaentrada(), browser.getFechasalida(), browser.getImportetotal()});
-
+                
             }
-
+            
         }
         jTable1.setModel(model);
     }
